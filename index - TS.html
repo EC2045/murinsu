@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T.S Official Portfolio - Professional Innovation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=Noto+Serif+JP:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #fcfcfc;
+            --text-main: #111111;
+            --accent: #1a365d;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif JP', serif;
+            scroll-behavior: smooth;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+
+        .serif { font-family: 'Crimson Pro', 'Noto Serif JP', serif; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-border {
+            border-left: 1px solid #e5e7eb;
+            padding-left: 2rem;
+        }
+
+        /* 画像サイズ調整用のカスタムクラス */
+        .art-image-container {
+            max-width: 450px; /* 画像の最大横幅を制限 */
+            margin: 0 auto;
+        }
+
+        .profile-table dt {
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .profile-table dd {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .art-description {
+            font-size: 0.85rem;
+            color: #777;
+            border-left: 2px solid #eee;
+            padding-left: 1.5rem;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-[0.2em] serif uppercase">T.S Portfolio</div>
+            <nav class="hidden md:flex space-x-12">
+                <a href="#about" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">PROFILE</a>
+                <a href="#works" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">WORKS</a>
+                <a href="#essence" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">ESSENCE</a>
+                <a href="#contact" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">INQUIRY</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center px-8 lg:px-24 bg-zinc-50">
+        <div class="max-w-5xl fade-in visible">
+            <p class="text-xs tracking-[0.4em] text-gray-400 uppercase mb-6 font-bold">Established 2024</p>
+            <h1 class="text-5xl md:text-7xl font-bold serif mb-8 leading-tight">
+                追求するのは、<br>
+                <span class="text-zinc-400 italic font-normal">確かな違和感</span>と技術。
+            </h1>
+            <div class="hero-border">
+                <p class="text-lg text-gray-500 max-w-xl mb-10 leading-relaxed">
+                    T.Sは、デジタルの地平において「意味のない美学」と「機能しない合理性」を統合します。
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="https://shun240523-stack.github.io/murinsu/" target="_blank" class="bg-black text-white px-10 py-4 text-sm font-bold tracking-widest hover:bg-zinc-800 transition">MAIN PROJECT</a>
+                    <a href="https://shun240523-stack.github.io/Waon-Jinkoku/" target="_blank" class="border border-zinc-300 px-10 py-4 text-sm font-bold tracking-widest hover:bg-black hover:text-white transition">和温陣国</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-8 bg-white">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-5 fade-in">
+                <div class="bg-zinc-100 aspect-[3/4] relative mb-8">
+                    <div class="absolute inset-0 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-user-secret text-[12rem]"></i>
+                    </div>
+                </div>
+                <dl class="profile-table">
+                    <dt>Country of Origin</dt>
+                    <dd>和温陣国 (自称)</dd>
+                    <dt>Specialty</dt>
+                    <dd>隠密・存在感の抹消</dd>
+                    <dt>Language</dt>
+                    <dd>日本語 / Binary / 独り言</dd>
+                </dl>
+            </div>
+            <div class="lg:col-span-7 flex flex-col justify-center fade-in">
+                <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">The Philosophy</h2>
+                <h3 class="text-4xl font-bold serif mb-8">静かなる混沌の構築</h3>
+                <p class="text-zinc-600 mb-8 leading-loose">
+                    圧倒的な存在感の希薄さを武器に、実体のないプロジェクトに従事。
+                    「昨日できたことが今日できない」という動的な不確実性を信条としています。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section (手.png サイズ調整済み) -->
+    <section id="works" class="py-32 px-8 bg-zinc-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in art-image-container">
+                    <div class="bg-white p-4 shadow-2xl relative group">
+                        <!-- GitHub上のファイル名に合わせて指定 -->
+                        <img src="手.png" alt="作品: 手" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                        <div class="absolute -bottom-4 -right-4 bg-black text-white px-3 py-1 text-[10px] tracking-widest font-bold">
+                            ARTWORK: 手.png
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h4 class="text-2xl font-bold serif mb-6">無限の連鎖と自己の拡散</h4>
+                    <p class="text-zinc-600 mb-6 leading-relaxed text-justify">
+                        自己の境界線が曖昧になり、無限に増殖していく「接続」への渇望と恐怖を描いた作品です。
+                        青い虚空を背景に、手から手が伸び、螺旋を描きながら遠ざかるその姿は、デジタル社会における「希薄な繋がり」の隠喩でもあります。
+                    </p>
+                    <div class="art-description italic">
+                        存在感を消す者が、唯一「ここにいる」と叫ぶための断片。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essence Section -->
+    <section id="essence" class="py-32 bg-black text-white px-8">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <h2 class="text-xs tracking-[0.5em] text-zinc-500 uppercase mb-12 font-bold">Essential Question</h2>
+            <h3 class="text-3xl md:text-5xl font-bold serif mb-10 leading-tight">「結局、何が言いたいんですか？」</h3>
+            <div class="w-12 h-1 bg-white mx-auto mb-12 opacity-30"></div>
+            <div class="space-y-8 text-zinc-400 text-lg leading-loose font-light">
+                <p>
+                    その問いを抱くこと自体が、私の設計した「ユーザー体験」の完成を意味します。
+                </p>
+                <p>
+                    答えは、あなたがブラウザを閉じた瞬間に、<br>
+                    ほんの少しだけ残る「妙な後味」の中にあります。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-8 bg-white border-t border-zinc-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-4xl font-bold serif mb-6">戦略的アンケート</h3>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-2xl border border-zinc-100 fade-in">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSesiXjPYs1wKrNiUaYv0A0FPH3-7iR9TxG24UVWNlzh1yaH0w/viewform?embedded=true" width="100%" height="700" frameborder="0">読み込んでいます…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-zinc-950 text-zinc-500 px-8">
+        <div class="max-w-7xl mx-auto text-center text-[10px] tracking-[0.3em] uppercase">
+            &copy; 2024 T.S - Dedicated to Non-Productive Innovation.
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
