@@ -42,7 +42,13 @@
             padding-left: 2rem;
         }
 
-        /* 作品カードの共通スタイル */
+        /* 作品カードの共通スタイルとサイズ制限 */
+        .art-container {
+            max-width: 400px; /* 画像の最大サイズを制限 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .art-card {
             background: white;
             padding: 1.5rem;
@@ -150,43 +156,43 @@
 
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
                 <!-- Fragment 01: 手.png -->
-                <div class="fade-in">
+                <div class="fade-in art-container text-center">
                     <div class="art-card group mb-6">
-                        <img src="手.png" alt="手.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                        <img src="手.png" alt="手.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700 mx-auto">
                     </div>
                     <h4 class="text-xl font-bold serif mb-3">無限の連鎖と自己の拡散</h4>
                     <p class="text-zinc-500 text-sm leading-relaxed mb-4">自己の境界線が曖昧になり、無限に増殖していく「接続」への渇望と恐怖。</p>
-                    <div class="art-description italic">手.png</div>
+                    <div class="art-description italic text-left">手.png</div>
                 </div>
 
                 <!-- Fragment 02: 壁を無視しないでください.png -->
-                <div class="fade-in">
+                <div class="fade-in art-container text-center">
                     <div class="art-card group mb-6">
-                        <img src="壁を無視しないでください.png" alt="壁を無視しないでください.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                        <img src="壁を無視しないでください.png" alt="壁を無視しないでください.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700 mx-auto">
                     </div>
                     <h4 class="text-xl font-bold serif mb-3">存在の無視に対する抗議</h4>
                     <p class="text-zinc-500 text-sm leading-relaxed mb-4">当たり前にある境界線を再認識させるための、静かなる叫び。</p>
-                    <div class="art-description italic">壁を無視しないでください.png</div>
+                    <div class="art-description italic text-left">壁を無視しないでください.png</div>
                 </div>
 
                 <!-- Fragment 03: 開いているふりをするドア.png -->
-                <div class="fade-in">
+                <div class="fade-in art-container text-center">
                     <div class="art-card group mb-6">
-                        <img src="開いているふりをするドア.png" alt="開いているふりをするドア.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                        <img src="開いているふりをするドア.png" alt="開いているふりをするドア.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700 mx-auto">
                     </div>
                     <h4 class="text-xl font-bold serif mb-3">偽装された可能性</h4>
                     <p class="text-zinc-500 text-sm leading-relaxed mb-4">開かれているようでいて、決して越えることのできない情報の障壁。</p>
-                    <div class="art-description italic">開いているふりをするドア.png</div>
+                    <div class="art-description italic text-left">開いているふりをするドア.png</div>
                 </div>
 
                 <!-- Fragment 04: 壁を走るな.png -->
-                <div class="fade-in">
+                <div class="fade-in art-container text-center">
                     <div class="art-card group mb-6">
-                        <img src="壁を走るな.png" alt="壁を走るな.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                        <img src="壁を走るな.png" alt="壁を走るな.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700 mx-auto">
                     </div>
                     <h4 class="text-xl font-bold serif mb-3">垂直方向への規律</h4>
                     <p class="text-zinc-500 text-sm leading-relaxed mb-4">重力と慣習に抗う者への、あまりにも理不尽な禁止命令。</p>
-                    <div class="art-description italic">壁を走るな.png</div>
+                    <div class="art-description italic text-left">壁を走るな.png</div>
                 </div>
             </div>
         </div>
