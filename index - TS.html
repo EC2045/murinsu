@@ -42,10 +42,15 @@
             padding-left: 2rem;
         }
 
-        /* 画像サイズ調整用のカスタムクラス */
-        .art-image-container {
-            max-width: 450px; /* 画像の最大横幅を制限 */
-            margin: 0 auto;
+        /* 作品カードの共通スタイル */
+        .art-card {
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+        .art-card:hover {
+            transform: translateY(-5px);
         }
 
         .profile-table dt {
@@ -66,8 +71,8 @@
             font-size: 0.85rem;
             color: #777;
             border-left: 2px solid #eee;
-            padding-left: 1.5rem;
-            margin-top: 1.5rem;
+            padding-left: 1rem;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -99,8 +104,8 @@
                     T.Sは、デジタルの地平において「意味のない美学」と「機能しない合理性」を統合します。
                 </p>
                 <div class="flex flex-wrap gap-6">
-                    <a href="https://ec2045.github.io/murinsu/" target="_blank" class="bg-black text-white px-10 py-4 text-sm font-bold tracking-widest hover:bg-zinc-800 transition">MAIN PROJECT</a>
-                    <a href="https://ec2045.github.io/Waon-Jinkoku/" target="_blank" class="border border-zinc-300 px-10 py-4 text-sm font-bold tracking-widest hover:bg-black hover:text-white transition">和温陣国</a>
+                    <a href="https://shun240523-stack.github.io/murinsu/" target="_blank" class="bg-black text-white px-10 py-4 text-sm font-bold tracking-widest hover:bg-zinc-800 transition">MAIN PROJECT</a>
+                    <a href="https://shun240523-stack.github.io/Waon-Jinkoku/" target="_blank" class="border border-zinc-300 px-10 py-4 text-sm font-bold tracking-widest hover:bg-black hover:text-white transition">和温陣国</a>
                 </div>
             </div>
         </div>
@@ -127,7 +132,7 @@
             <div class="lg:col-span-7 flex flex-col justify-center fade-in">
                 <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">The Philosophy</h2>
                 <h3 class="text-4xl font-bold serif mb-8">静かなる混沌の構築</h3>
-                <p class="text-zinc-600 mb-8 leading-loose">
+                <p class="text-zinc-600 mb-8 leading-loose text-justify">
                     圧倒的な存在感の希薄さを武器に、実体のないプロジェクトに従事。
                     「昨日できたことが今日できない」という動的な不確実性を信条としています。
                 </p>
@@ -135,28 +140,53 @@
         </div>
     </section>
 
-    <!-- Works Section (手.png サイズ調整済み) -->
+    <!-- Works Section -->
     <section id="works" class="py-32 px-8 bg-zinc-100">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="fade-in art-image-container">
-                    <div class="bg-white p-4 shadow-2xl relative group">
-                        <!-- GitHub上のファイル名に合わせて指定 -->
-                        <img src="手.png" alt="作品: 手" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
-                        <div class="absolute -bottom-4 -right-4 bg-black text-white px-3 py-1 text-[10px] tracking-widest font-bold">
-                            ARTWORK: 手.png
-                        </div>
-                    </div>
-                </div>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">Artistic Fragments</h2>
+                <h3 class="text-4xl font-bold serif">視覚的断片</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+                <!-- Fragment 01: 手.png -->
                 <div class="fade-in">
-                    <h4 class="text-2xl font-bold serif mb-6">無限の連鎖と自己の拡散</h4>
-                    <p class="text-zinc-600 mb-6 leading-relaxed text-justify">
-                        自己の境界線が曖昧になり、無限に増殖していく「接続」への渇望と恐怖を描いた作品です。
-                        青い虚空を背景に、手から手が伸び、螺旋を描きながら遠ざかるその姿は、デジタル社会における「希薄な繋がり」の隠喩でもあります。
-                    </p>
-                    <div class="art-description italic">
-                        存在感を消す者が、唯一「ここにいる」と叫ぶための断片。
+                    <div class="art-card group mb-6">
+                        <img src="手.png" alt="手.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
                     </div>
+                    <h4 class="text-xl font-bold serif mb-3">無限の連鎖と自己の拡散</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-4">自己の境界線が曖昧になり、無限に増殖していく「接続」への渇望と恐怖。</p>
+                    <div class="art-description italic">手.png</div>
+                </div>
+
+                <!-- Fragment 02: 壁を無視しないでください.png -->
+                <div class="fade-in">
+                    <div class="art-card group mb-6">
+                        <img src="壁を無視しないでください.png" alt="壁を無視しないでください.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <h4 class="text-xl font-bold serif mb-3">存在の無視に対する抗議</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-4">当たり前にある境界線を再認識させるための、静かなる叫び。</p>
+                    <div class="art-description italic">壁を無視しないでください.png</div>
+                </div>
+
+                <!-- Fragment 03: 開いているふりをするドア.png -->
+                <div class="fade-in">
+                    <div class="art-card group mb-6">
+                        <img src="開いているふりをするドア.png" alt="開いているふりをするドア.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <h4 class="text-xl font-bold serif mb-3">偽装された可能性</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-4">開かれているようでいて、決して越えることのできない情報の障壁。</p>
+                    <div class="art-description italic">開いているふりをするドア.png</div>
+                </div>
+
+                <!-- Fragment 04: 壁を走るな.png -->
+                <div class="fade-in">
+                    <div class="art-card group mb-6">
+                        <img src="壁を走るな.png" alt="壁を走るな.png" class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-700">
+                    </div>
+                    <h4 class="text-xl font-bold serif mb-3">垂直方向への規律</h4>
+                    <p class="text-zinc-500 text-sm leading-relaxed mb-4">重力と慣習に抗う者への、あまりにも理不尽な禁止命令。</p>
+                    <div class="art-description italic">壁を走るな.png</div>
                 </div>
             </div>
         </div>
