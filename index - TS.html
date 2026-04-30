@@ -12,8 +12,26 @@
         :root {
             --primary-bg: #ffffff;
             --secondary-bg: #fcfcfc;
+            --card-bg: #ffffff;
             --text-main: #111111;
+            --text-muted: #666666;
             --accent: #1a365d;
+            --border-color: #e5e7eb;
+            --hero-bg: #f9f9f9;
+            --header-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ダークモード（反転）設定 */
+        [data-theme='dark'] {
+            --primary-bg: #111111;
+            --secondary-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-main: #f0f0f0;
+            --text-muted: #aaaaaa;
+            --accent: #63b3ed;
+            --border-color: #333333;
+            --hero-bg: #0a0a0a;
+            --header-bg: rgba(17, 17, 17, 0.9);
         }
 
         body {
@@ -22,6 +40,7 @@
             background-color: var(--primary-bg);
             color: var(--text-main);
             line-height: 1.8;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         .serif { font-family: 'Crimson Pro', 'Noto Serif JP', serif; }
@@ -38,11 +57,10 @@
         }
 
         .hero-border {
-            border-left: 1px solid #e5e7eb;
+            border-left: 1px solid var(--border-color);
             padding-left: 2rem;
         }
 
-        /* 作品カードのグリッド調整 */
         .art-container {
             max-width: 400px;
             margin-left: auto;
@@ -53,20 +71,25 @@
         }
 
         .art-card {
-            background: white;
+            background: var(--card-bg);
             padding: 1.5rem;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+            transition: transform 0.5s ease, background-color 0.5s ease;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            border: 1px solid var(--border-color);
         }
 
-        /* 画像エリアの高さを固定して揃える */
+        [data-theme='dark'] .art-card {
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            border: 1px solid #222;
+        }
+
         .art-image-wrapper {
             width: 100%;
-            aspect-ratio: 3 / 4; /* 縦横比を固定 */
-            background-color: #f9f9f9;
+            aspect-ratio: 3 / 4;
+            background-color: var(--secondary-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -77,7 +100,12 @@
         .art-image-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* サイズ制限しつつ中央に配置 */
+            object-fit: contain;
+            transition: filter 0.5s ease;
+        }
+
+        [data-theme='dark'] .art-image-wrapper img {
+            filter: brightness(0.8) contrast(1.2);
         }
 
         .art-card:hover {
@@ -88,68 +116,91 @@
             font-weight: 700;
             font-size: 0.75rem;
             letter-spacing: 0.2em;
-            color: #999;
+            color: var(--text-muted);
             text-transform: uppercase;
         }
 
         .profile-table dd {
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
-            color: #333;
+            color: var(--text-main);
         }
 
         .art-description {
             font-size: 0.85rem;
-            color: #777;
-            border-left: 2px solid #eee;
+            color: var(--text-muted);
+            border-left: 2px solid var(--border-color);
             padding-left: 1rem;
-            margin-top: auto; /* 常にカード下部に配置 */
+            margin-top: auto;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.5s ease, border-color 0.5s ease;
+        }
+
+        /* テーマ切替スイッチ（ヘッダー用） */
+        .theme-switch {
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+        .theme-switch:hover {
+            opacity: 0.6;
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <header class="fixed w-full z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
             <div class="text-xl font-bold tracking-[0.2em] serif uppercase">T.S Portfolio</div>
-            <nav class="hidden md:flex space-x-12">
-                <a href="#about" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">PROFILE</a>
-                <a href="#works" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">WORKS</a>
-                <a href="#essence" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">ESSENCE</a>
-                <a href="#contact" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">INQUIRY</a>
+            <nav class="flex items-center space-x-8 md:space-x-12">
+                <div class="hidden md:flex space-x-12">
+                    <a href="#about" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">PROFILE</a>
+                    <a href="#works" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">WORKS</a>
+                    <a href="#essence" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">ESSENCE</a>
+                    <a href="#contact" class="text-[0.75rem] font-semibold tracking-widest hover:opacity-50 transition">INQUIRY</a>
+                </div>
+                <!-- Theme Toggle in Taskbar -->
+                <button id="theme-toggle" class="theme-switch" aria-label="Toggle theme">
+                    <i class="fa-solid fa-circle-half-stroke text-lg"></i>
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center px-8 lg:px-24 bg-zinc-50">
+    <section class="min-h-screen flex items-center px-8 lg:px-24" style="background-color: var(--hero-bg);">
         <div class="max-w-5xl fade-in visible">
-            <p class="text-xs tracking-[0.4em] text-gray-400 uppercase mb-6 font-bold">Established 2024</p>
+            <p class="text-xs tracking-[0.4em] text-zinc-400 uppercase mb-6 font-bold">Established 2024</p>
             <h1 class="text-5xl md:text-7xl font-bold serif mb-8 leading-tight">
                 追求するのは、<br>
                 <span class="text-zinc-400 italic font-normal">確かな違和感</span>と技術。
             </h1>
             <div class="hero-border">
-                <p class="text-lg text-gray-500 max-w-xl mb-10 leading-relaxed">
+                <p class="text-lg text-zinc-500 max-w-xl mb-10 leading-relaxed">
                     T.Sは、デジタルの地平において「意味のない美学」と「機能しない合理性」を統合します。
                 </p>
                 <div class="flex flex-wrap gap-6">
-                    <a href="https://shun240523-stack.github.io/murinsu/" target="_blank" class="bg-black text-white px-10 py-4 text-sm font-bold tracking-widest hover:bg-zinc-800 transition">MAIN PROJECT</a>
-                    <a href="https://shun240523-stack.github.io/Waon-Jinkoku/" target="_blank" class="border border-zinc-300 px-10 py-4 text-sm font-bold tracking-widest hover:bg-black hover:text-white transition">和温陣国</a>
+                    <a href="https://ec2045.github.io/murinsu/" target="_blank" class="bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 px-10 py-4 text-sm font-bold tracking-widest hover:opacity-80 transition">MAIN PROJECT</a>
+                    <a href="https://ec2045.github.io/Waon-Jinkoku/" target="_blank" class="border border-zinc-400 px-10 py-4 text-sm font-bold tracking-widest hover:bg-zinc-900 hover:text-zinc-100 transition">和温陣国</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-32 px-8 bg-white">
+    <section id="about" class="py-32 px-8">
         <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16">
             <div class="lg:col-span-5 fade-in">
-                <div class="bg-zinc-100 aspect-[3/4] relative mb-8">
-                    <div class="absolute inset-0 flex items-center justify-center text-zinc-200">
-                        <i class="fa-solid fa-user-secret text-[12rem]"></i>
-                    </div>
+                <div class="bg-zinc-200 dark:bg-zinc-800 aspect-[3/4] relative mb-8 flex items-center justify-center">
+                    <i class="fa-solid fa-user-secret text-[12rem] text-zinc-400 opacity-50"></i>
                 </div>
                 <dl class="profile-table">
                     <dt>Country of Origin</dt>
@@ -163,7 +214,7 @@
             <div class="lg:col-span-7 flex flex-col justify-center fade-in">
                 <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">The Philosophy</h2>
                 <h3 class="text-4xl font-bold serif mb-8">静かなる混沌の構築</h3>
-                <p class="text-zinc-600 mb-8 leading-loose text-justify">
+                <p class="text-zinc-500 mb-8 leading-loose text-justify">
                     圧倒的な存在感の希薄さを武器に、実体のないプロジェクトに従事。
                     「昨日できたことが今日できない」という動的な不確実性を信条としています。
                 </p>
@@ -172,19 +223,19 @@
     </section>
 
     <!-- Works Section -->
-    <section id="works" class="py-32 px-8 bg-zinc-100">
+    <section id="works" class="py-32 px-8 border-t border-zinc-100 dark:border-zinc-800">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 fade-in">
                 <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">Artistic Fragments</h2>
                 <h3 class="text-4xl font-bold serif">視覚的断片</h3>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
-                <!-- Fragment 01: 手.png -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+                <!-- Fragment 01 -->
                 <div class="fade-in art-container text-center">
                     <div class="art-card group">
                         <div class="art-image-wrapper">
-                            <img src="手.png" alt="手.png" class="grayscale group-hover:grayscale-0 transition duration-700">
+                            <img src="手.png" alt="手.png" class="grayscale group-hover:grayscale-0 transition duration-700" onerror="this.src='https://via.placeholder.com/300x400?text=Hand'">
                         </div>
                         <h4 class="text-xl font-bold serif mb-3 min-h-[3.5rem] flex items-center justify-center">無限の連鎖と自己の拡散</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed mb-4 min-h-[3.5rem] flex items-center justify-center">自己の境界線が曖昧になり、無限に増殖していく「接続」への渇望と恐怖。</p>
@@ -192,11 +243,11 @@
                     </div>
                 </div>
 
-                <!-- Fragment 02: 壁を無視しないでください.png -->
+                <!-- Fragment 02 -->
                 <div class="fade-in art-container text-center">
                     <div class="art-card group">
                         <div class="art-image-wrapper">
-                            <img src="壁を無視しないでください.png" alt="壁を無視しないでください.png" class="grayscale group-hover:grayscale-0 transition duration-700">
+                            <img src="壁を無視しないでください.png" alt="壁を無視しないでください.png" class="grayscale group-hover:grayscale-0 transition duration-700" onerror="this.src='https://via.placeholder.com/300x400?text=Wall'">
                         </div>
                         <h4 class="text-xl font-bold serif mb-3 min-h-[3.5rem] flex items-center justify-center">存在の無視に対する抗議</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed mb-4 min-h-[3.5rem] flex items-center justify-center">当たり前にある境界線を再認識させるための、静かなる叫び。</p>
@@ -204,11 +255,11 @@
                     </div>
                 </div>
 
-                <!-- Fragment 03: 開いているふりをするドア.png -->
+                <!-- Fragment 03 -->
                 <div class="fade-in art-container text-center">
                     <div class="art-card group">
                         <div class="art-image-wrapper">
-                            <img src="開いているふりをするドア.png" alt="開いているふりをするドア.png" class="grayscale group-hover:grayscale-0 transition duration-700">
+                            <img src="開いているふりをするドア.png" alt="開いているふりをするドア.png" class="grayscale group-hover:grayscale-0 transition duration-700" onerror="this.src='https://via.placeholder.com/300x400?text=Door'">
                         </div>
                         <h4 class="text-xl font-bold serif mb-3 min-h-[3.5rem] flex items-center justify-center">偽装された可能性</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed mb-4 min-h-[3.5rem] flex items-center justify-center">開かれているようでいて、決して越えることのできない情報の障壁。</p>
@@ -216,15 +267,39 @@
                     </div>
                 </div>
 
-                <!-- Fragment 04: 壁を走るな.png -->
+                <!-- Fragment 04 -->
                 <div class="fade-in art-container text-center">
                     <div class="art-card group">
                         <div class="art-image-wrapper">
-                            <img src="壁を走るな.png" alt="壁を走るな.png" class="grayscale group-hover:grayscale-0 transition duration-700">
+                            <img src="壁を走るな.png" alt="壁を走るな.png" class="grayscale group-hover:grayscale-0 transition duration-700" onerror="this.src='https://via.placeholder.com/300x400?text=Run'">
                         </div>
                         <h4 class="text-xl font-bold serif mb-3 min-h-[3.5rem] flex items-center justify-center">垂直方向への規律</h4>
                         <p class="text-zinc-500 text-sm leading-relaxed mb-4 min-h-[3.5rem] flex items-center justify-center">重力と慣習に抗う者への、あまりにも理不尽な禁止命令。</p>
                         <div class="art-description italic text-left">壁を走るな.png</div>
+                    </div>
+                </div>
+
+                <!-- Fragment 05 -->
+                <div class="fade-in art-container text-center">
+                    <div class="art-card group">
+                        <div class="art-image-wrapper">
+                            <img src="天井に座らないでください.png" alt="天井に座らないでください.png" class="grayscale group-hover:grayscale-0 transition duration-700" onerror="this.src='https://via.placeholder.com/300x400?text=Ceiling'">
+                        </div>
+                        <h4 class="text-xl font-bold serif mb-3 min-h-[3.5rem] flex items-center justify-center">方向の違い</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-4 min-h-[3.5rem] flex items-center justify-center">上と下、どちらが正しいのか？その問いの答えは閉ざされた。</p>
+                        <div class="art-description italic text-left">天井に座らないでください.png</div>
+                    </div>
+                </div>
+
+                <!-- Fragment 06 -->
+                <div class="fade-in art-container text-center">
+                    <div class="art-card group">
+                        <div class="art-image-wrapper">
+                            <img src="身体を改造しなでください.png" alt="身体を改造しなでください.png" class="grayscale group-hover:grayscale-0 transition duration-700" onerror="this.src='https://via.placeholder.com/300x400?text=Body'">
+                        </div>
+                        <h4 class="text-xl font-bold serif mb-3 min-h-[3.5rem] flex items-center justify-center">それは機械だ。</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-4 min-h-[3.5rem] flex items-center justify-center">人間から逸脱しようとする人への警告。果たしてその先は...</p>
+                        <div class="art-description italic text-left">身体を改造しなでください.png</div>
                     </div>
                 </div>
             </div>
@@ -232,7 +307,7 @@
     </section>
 
     <!-- Essence Section -->
-    <section id="essence" class="py-32 bg-black text-white px-8">
+    <section id="essence" class="py-40 bg-zinc-950 text-white px-8">
         <div class="max-w-4xl mx-auto text-center fade-in">
             <h2 class="text-xs tracking-[0.5em] text-zinc-500 uppercase mb-12 font-bold">Essential Question</h2>
             <h3 class="text-3xl md:text-5xl font-bold serif mb-10 leading-tight">「結局、何が言いたいんですか？」</h3>
@@ -250,31 +325,53 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-8 bg-white border-t border-zinc-100">
+    <section id="contact" class="py-32 px-8 border-t border-zinc-100 dark:border-zinc-800">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16 fade-in">
                 <h3 class="text-4xl font-bold serif mb-6">戦略的アンケート</h3>
             </div>
-            <div class="rounded-2xl overflow-hidden shadow-2xl border border-zinc-100 fade-in">
+            <div class="rounded-2xl overflow-hidden shadow-2xl border border-zinc-100 dark:border-zinc-800 fade-in">
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSesiXjPYs1wKrNiUaYv0A0FPH3-7iR9TxG24UVWNlzh1yaH0w/viewform?embedded=true" width="100%" height="700" frameborder="0">読み込んでいます…</iframe>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-zinc-950 text-zinc-500 px-8">
+    <footer class="py-20 bg-zinc-950 text-zinc-600 px-8">
         <div class="max-w-7xl mx-auto text-center text-[10px] tracking-[0.3em] uppercase">
             &copy; 2024 T.S - Dedicated to Non-Productive Innovation.
         </div>
     </footer>
 
     <script>
+        // Scroll Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Subtle rotation effect
+            const icon = themeToggle.querySelector('i');
+            icon.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            icon.style.transform = currentTheme === 'light' ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
     </script>
 </body>
 </html>
