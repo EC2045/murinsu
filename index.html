@@ -1,158 +1,160 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>問い100% | 株式会社ムリンス</title>
-    <meta name="description" content="株式会社ムリンスの不条理アーカイブ。問いだけが純粋成分の飲料「問い100%」と、使えないプロダクトの哲学的展示。" />
-    <meta property="og:title" content="問い100% | 株式会社ムリンス" />
-    <meta property="og:description" content="株式会社ムリンスの不条理アーカイブ。問いだけが純粋成分の飲料「問い100%」と、使えないプロダクトの哲学的展示。" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ec2045.github.io/murinsu/" />
+    
+    <!-- SEO & OGP Settings -->
+    <meta name="description" content="答えはいらない。純粋な問いだけを抽出した概念的飲料「問い100%」。株式会社ムリンスが提案する、思考を白紙に戻すためのアーカイブ。">
+    <meta property="og:title" content="問い100% | 株式会社ムリンス">
+    <meta property="og:description" content="答えはいらない。あなたの内側にある輪郭を、もう一度描き直すための試薬。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://murinsu-inc.jp/toi100">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200&h=630">
+    <meta property="og:site_name" content="問い100% 公式サイト">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="問い100% | 株式会社ムリンス">
+    <meta name="twitter:description" content="答えはいらない。純粋な問いだけを抽出した概念的飲料。">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200&h=630">
 
     <!-- タブバー用アイコン (Favicon SVG) -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 20 L25 80 L75 80 L80 20' stroke='black' stroke-width='10' fill='none'/%3E%3Ctext x='50' y='65' fill='black' font-family='Noto Serif JP, serif' font-weight='bold' font-size='45' text-anchor='middle' transform='rotate(-5 50 60)'%3E問%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 20 L25 80 L75 80 L80 20' stroke='currentColor' stroke-width='10' fill='none'/%3E%3Ctext x='50' y='65' fill='currentColor' font-family='Noto Serif JP, serif' font-weight='bold' font-size='45' text-anchor='middle' transform='rotate(-5 50 60)'%3E問%3C/text%3E%3C/svg%3E">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-black: #000000;
-            --brand-white: #ffffff;
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --sub-text: rgba(255, 255, 255, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --nav-bg: rgba(0, 0, 0, 0.9);
+            --invert-val: 0;
+        }
+
+        body.light-mode {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --sub-text: rgba(0, 0, 0, 0.4);
+            --border-color: rgba(0, 0, 0, 0.1);
+            --card-bg: rgba(0, 0, 0, 0.02);
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --invert-val: 1;
         }
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--brand-black);
-            color: var(--brand-white);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             scroll-behavior: smooth;
+            transition: background-color 0.8s ease, color 0.8s ease;
         }
-
-        .serif {
-            font-family: 'Noto Serif JP', serif;
-        }
-
+        .serif { font-family: 'Noto Serif JP', serif; }
+        
         .hero-vignette {
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 1) 85%);
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, var(--bg-color) 85%);
         }
-
+        
         @keyframes float-angled {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(-2deg);
-            }
-
-            50% {
-                transform: translateY(-30px) rotate(2deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-30px) rotate(2deg); }
         }
-
-        .float-animation {
-            animation: float-angled 8s ease-in-out infinite;
-        }
+        .float-animation { animation: float-angled 8s ease-in-out infinite; }
 
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* Tab Styles */
-        .tab-btn {
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s;
-            opacity: 0.4;
-        }
-
-        .tab-btn.active {
-            border-bottom: 2px solid white;
-            opacity: 1;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeInContent 0.8s ease-out forwards;
-        }
+        .tab-btn { border-bottom: 2px solid transparent; transition: all 0.3s; opacity: 0.4; }
+        .tab-btn.active { border-bottom: 2px solid var(--text-color); opacity: 1; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeInContent 0.8s ease-out forwards; }
 
         @keyframes fadeInContent {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .product-card {
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
             transition: all 0.5s ease;
         }
-
         .product-card:hover {
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--text-color);
+            background: var(--card-bg);
         }
 
         @keyframes spin-slow {
-            from {
-                transform: rotate(0deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow { animation: spin-slow 12s linear infinite; }
 
-            to {
-                transform: rotate(360deg);
-            }
+        ::selection { background-color: var(--text-color); color: var(--bg-color); }
+
+        /* Nav scroll state */
+        .nav-scrolled {
+            background-color: var(--nav-bg) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .animate-spin-slow {
-            animation: spin-slow 12s linear infinite;
+        /* Mode Toggle Button */
+        #mode-toggle {
+            cursor: pointer;
+            width: 40px;
+            height: 20px;
+            border: 1px solid var(--text-color);
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s;
         }
-
-        ::selection {
-            background-color: white;
-            color: black;
+        #mode-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        body.light-mode #mode-toggle::after {
+            transform: translateX(20px);
         }
     </style>
 </head>
-
 <body>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 px-8 py-8 flex justify-between items-center transition-all duration-500" id="navbar">
         <div class="flex items-center space-x-4 group">
-            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
-                class="group-hover:opacity-70 transition-opacity">
-                <path d="M20 20 L25 85 L75 85 L80 20" stroke="white" stroke-width="4" fill="none" />
-                <text x="50" y="66" fill="white" font-family="Noto Serif JP" font-weight="bold" font-size="38"
-                    text-anchor="middle" transform="rotate(-4 50 62)">問</text>
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="group-hover:opacity-70 transition-opacity">
+                <path d="M20 20 L25 85 L75 85 L80 20" stroke="currentColor" stroke-width="4" fill="none"/>
+                <text x="50" y="66" fill="currentColor" font-family="Noto Serif JP" font-weight="bold" font-size="38" text-anchor="middle" transform="rotate(-4 50 62)">問</text>
             </svg>
             <div class="flex flex-col leading-none">
                 <div class="text-xl font-bold tracking-[0.4em] serif">問い100%</div>
                 <div class="text-[8px] tracking-[0.2em] opacity-40 mt-1">株式会社ムリンス</div>
             </div>
         </div>
-        <div class="hidden md:flex items-center space-x-12 text-[10px] tracking-[0.5em] opacity-60">
+        <div class="hidden md:flex items-center space-x-10 text-[10px] tracking-[0.5em] opacity-60">
             <a href="#concept" class="hover:opacity-100 transition">CONCEPT</a>
             <a href="#products" class="hover:opacity-100 transition">ARCHIVE</a>
+            <a href="#recruit" class="hover:opacity-100 transition">RECRUIT</a>
             <a href="#form" class="hover:opacity-100 transition">INQUIRY</a>
+            <div id="mode-toggle" onclick="toggleMode()" title="モード切替"></div>
             <span class="opacity-20">|</span>
-            <a href="index - TS.html" class="hover:opacity-100 transition italic tracking-widest">TSportfolio</a>
+            <a href="#" class="hover:opacity-100 transition italic tracking-widest">TSportfolio</a>
         </div>
     </nav>
 
@@ -160,21 +162,18 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden hero-vignette">
         <div class="relative z-10 text-center px-4">
             <div class="mb-16 float-animation relative group">
-                <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="mx-auto opacity-80 group-hover:opacity-40 transition-opacity">
-                    <path d="M15 15 L22 90 L78 90 L85 15" stroke="white" stroke-width="1" stroke-dasharray="2 6" />
-                    <text x="50" y="62" fill="white" font-family="Noto Serif JP" font-weight="bold" font-size="45"
-                        text-anchor="middle" transform="rotate(-5 50 55)">問</text>
+                <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto opacity-80 group-hover:opacity-40 transition-opacity">
+                    <path d="M15 15 L22 90 L78 90 L85 15" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6"/>
+                    <text x="50" y="62" fill="currentColor" font-family="Noto Serif JP" font-weight="bold" font-size="45" text-anchor="middle" transform="rotate(-5 50 55)">問</text>
                 </svg>
             </div>
             <h1 class="text-4xl md:text-7xl font-light serif mb-10 tracking-[0.3em] fade-in">答えはいらない。</h1>
-            <p class="text-xs md:text-base font-extralight tracking-[0.6em] opacity-60 fade-in">PURE INQUIRY IS ALL YOU
-                NEED.</p>
+            <p class="text-xs md:text-base font-extralight tracking-[0.6em] opacity-60 fade-in">PURE INQUIRY IS ALL YOU NEED.</p>
         </div>
     </section>
 
     <!-- Concept -->
-    <section id="concept" class="py-40 px-6 bg-white text-black text-center relative overflow-hidden">
+    <section id="concept" class="py-40 px-6 bg-white text-black text-center relative overflow-hidden transition-colors duration-1000">
         <div class="max-w-3xl mx-auto relative z-10">
             <p class="text-[10px] tracking-[0.8em] opacity-40 mb-12 uppercase">Statement by Murinsu Inc.</p>
             <h2 class="text-2xl md:text-4xl serif mb-20 tracking-[0.2em] fade-in">
@@ -193,45 +192,38 @@
     </section>
 
     <!-- Archive (Tabs) -->
-    <section id="products" class="py-40 bg-black px-6 border-t border-white/5">
+    <section id="products" class="py-40 px-6 border-t border-white/5 transition-colors duration-1000">
         <div class="max-w-6xl mx-auto">
             <div class="fade-in text-center mb-20">
-                <p class="text-[10px] tracking-[0.8em] text-gray-500 mb-4 uppercase">Unusable Objects Collection</p>
+                <p class="text-[10px] tracking-[0.8em] opacity-40 mb-4 uppercase">Unusable Objects Collection</p>
                 <h2 class="text-3xl serif tracking-widest">不条理のアーカイブ</h2>
             </div>
 
             <div class="flex justify-center flex-wrap gap-6 md:gap-12 mb-24 fade-in">
-                <button onclick="showTab('elixir')" class="tab-btn active pb-4 text-[10px] md:text-xs tracking-[0.4em]"
-                    id="btn-elixir">ELIXIR</button>
-                <button onclick="showTab('physical')" class="tab-btn pb-4 text-[10px] md:text-xs tracking-[0.4em]"
-                    id="btn-physical">PHYSICAL</button>
-                <button onclick="showTab('intellect')" class="tab-btn pb-4 text-[10px] md:text-xs tracking-[0.4em]"
-                    id="btn-intellect">INTELLECTUAL</button>
+                <button onclick="showTab('elixir')" class="tab-btn active pb-4 text-[10px] md:text-xs tracking-[0.4em]" id="btn-elixir">ELIXIR</button>
+                <button onclick="showTab('physical')" class="tab-btn pb-4 text-[10px] md:text-xs tracking-[0.4em]" id="btn-physical">PHYSICAL</button>
+                <button onclick="showTab('intellect')" class="tab-btn pb-4 text-[10px] md:text-xs tracking-[0.4em]" id="btn-intellect">INTELLECTUAL</button>
             </div>
 
             <div id="tab-elixir" class="tab-content active">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="product-card p-12 space-y-8 relative group overflow-hidden">
-                        <div
-                            class="aspect-[3/4] border border-white/5 flex items-center justify-center relative overflow-hidden transition-all duration-700 group-hover:scale-105">
+                        <div class="aspect-[3/4] border border-white/5 flex items-center justify-center relative overflow-hidden transition-all duration-700 group-hover:scale-105">
                             <div class="w-24 h-48 border border-white/30 relative">
                                 <div class="absolute bottom-0 w-full h-1/3 bg-white/10"></div>
                             </div>
                         </div>
                         <h3 class="text-xl serif tracking-widest">問い100% (Original)</h3>
-                        <p class="text-gray-500 text-xs leading-loose tracking-widest">
-                            株式会社ムリンスが、流通させることで「答え」に変わってしまうことを恐れた概念的飲料。論理の崩壊と純粋な好奇心の残留。</p>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">株式会社ムリンスが、流通させることで「答え」に変わってしまうことを恐れた概念的飲料。論理の崩壊と純粋な好奇心の残留。</p>
                     </div>
                     <div class="product-card p-12 space-y-8 relative group overflow-hidden">
-                        <div
-                            class="aspect-[3/4] border border-white/5 flex items-center justify-center relative overflow-hidden transition-all duration-700 group-hover:scale-105">
+                        <div class="aspect-[3/4] border border-white/5 flex items-center justify-center relative overflow-hidden transition-all duration-700 group-hover:scale-105">
                             <div class="w-32 h-32 rounded-full border border-white/20 flex items-center justify-center">
                                 <div class="w-16 h-16 rounded-full border-t border-white/60 animate-spin-slow"></div>
                             </div>
                         </div>
                         <h3 class="text-xl serif tracking-widest">忘却の水滴</h3>
-                        <p class="text-gray-500 text-xs leading-loose tracking-widest">
-                            飲むことで「自分は何者か」という問い以外の記憶を一時的に希釈する。白紙の状態で世界を再定義するためのブースター。</p>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">飲むことで「自分は何者か」という問い以外の記憶を一時的に希釈する。白紙の状態でお世界を再定義するためのブースター。</p>
                     </div>
                 </div>
             </div>
@@ -239,16 +231,43 @@
             <div id="tab-physical" class="tab-content">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="product-card p-12 space-y-8 relative group">
-                        <div
-                            class="aspect-square border border-white/5 flex flex-col items-center justify-center space-y-4">
+                        <div class="aspect-square border border-white/5 flex flex-col items-center justify-center space-y-4">
                             <div class="w-32 h-48 border-2 border-white/40 relative">
-                                <div class="absolute top-4 w-4 h-4 rounded-full border border-white animate-bounce">
-                                </div>
+                                <div class="absolute top-4 w-4 h-4 rounded-full border border-white animate-bounce"></div>
                             </div>
                         </div>
                         <h3 class="text-xl serif tracking-widest">Reverse Gravity Treadmill</h3>
-                        <p class="text-gray-500 text-xs leading-loose tracking-widest">
-                            逆立ち用ランニングマシン。視点を180度転換し、どこにも辿り着けない歩行を続ける。</p>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">逆立ち用ランニングマシン。視点を180度転換し、どこにも辿り着けない歩行を続ける。</p>
+                    </div>
+                    <div class="product-card p-12 space-y-8 relative group">
+                        <div class="aspect-square border border-white/5 flex flex-col items-center justify-center">
+                            <div class="w-48 h-24 border border-white/40 relative flex items-center justify-center">
+                                <div class="w-40 h-1 bg-white/20"></div>
+                                <div class="absolute bottom-0 text-[8px] opacity-20">PRONE POSITION RUNNING</div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl serif tracking-widest">Prone-Tread</h3>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">うつ伏せ用ランニングマシン。重力を背に受け、大地を這いながら進む感覚を数値化する。休息と前進の矛盾した共存。</p>
+                    </div>
+                    <div class="product-card p-12 space-y-8 relative group">
+                        <div class="aspect-square border border-white/5 flex items-center justify-center">
+                            <svg width="100" height="100" viewBox="0 0 100 100" class="opacity-40 group-hover:opacity-80 transition-opacity">
+                                <path d="M10 50 Q30 10, 50 50 T90 50" stroke="currentColor" fill="none" stroke-width="2"/>
+                                <path d="M10 50 L90 50" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl serif tracking-widest">Curve Ruler</h3>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">曲線を書くための定規。最短距離こそが最短であるという思い込みを修正し、思考に豊かな遠回りを強制する。</p>
+                    </div>
+                    <div class="product-card p-12 space-y-8 relative group">
+                        <div class="aspect-square border border-white/5 flex items-center justify-center overflow-hidden">
+                            <div class="w-32 h-32 border border-white/20 rounded-full flex items-center justify-center relative">
+                                <div class="w-24 h-24 border border-white/40 rounded-full animate-spin-slow"></div>
+                                <div class="absolute text-[8px] opacity-40">∞ cm</div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl serif tracking-widest">The Infinite Coil</h3>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">巻き取れるものさし。長さを測れば測るほど、手元から真実が巻き取られていく。終わりなき計測のためのオブジェ。</p>
                     </div>
                 </div>
             </div>
@@ -256,84 +275,84 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="product-card p-12 space-y-8 relative group">
                         <div class="aspect-square border border-white/5 flex items-center justify-center">
-                            <div
-                                class="w-40 h-40 border border-white/20 flex items-center justify-center serif text-2xl">
-                                問</div>
+                            <div class="w-40 h-40 border border-white/20 flex items-center justify-center serif text-2xl">問</div>
                         </div>
                         <h3 class="text-xl serif tracking-widest">Antagonistic Inquiry Cards</h3>
-                        <p class="text-gray-500 text-xs leading-loose tracking-widest">
-                            勝者のいない対戦型ゲーム。相手の心に最も深い違和感を植え付ける対話ツール。</p>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">勝者のいない対戦型ゲーム。相手の心に最も深い違和感を植え付ける対話ツール。</p>
+                    </div>
+                    <div class="product-card p-12 space-y-8 relative group">
+                        <div class="aspect-square border border-white/5 flex flex-col items-center justify-center">
+                            <div class="w-32 h-20 bg-white/10 border border-white/30 rounded-t-lg relative">
+                                <div class="absolute bottom-2 left-2 w-4 h-4 bg-white/20 rounded-full"></div>
+                                <div class="absolute bottom-2 right-2 w-8 h-2 bg-white/20 rounded-sm"></div>
+                            </div>
+                            <div class="w-32 h-24 bg-white/5 border border-white/20 rounded-b-lg flex flex-wrap p-2 gap-1">
+                                <div class="w-4 h-4 bg-white/10"></div><div class="w-4 h-4 bg-white/10"></div><div class="w-4 h-4 bg-white/10"></div>
+                                <div class="w-4 h-4 bg-white/10"></div><div class="w-4 h-4 bg-white/10"></div><div class="w-4 h-4 bg-white/10"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl serif tracking-widest">Gara-Paso (ガラパソ)</h3>
+                        <p class="opacity-60 text-xs leading-loose tracking-widest">ガラケーの不自由さとPCの過剰さを融合させた端末。物理ボタンを100回叩かなければ一文字も入力できない、祈りに似た通信体験。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-40 bg-zinc-950 px-6 border-b border-white/5 relative overflow-hidden">
-        <div class="max-w-2xl mx-auto space-y-24 relative z-10">
-            <div class="fade-in">
-                <p class="text-[10px] tracking-[0.8em] text-gray-600 mb-6 text-center uppercase">Internal Inquiry</p>
-                <h2 class="text-3xl serif text-center mb-20 tracking-widest">不透明な疑問</h2>
+    <!-- Recruit Section -->
+    <section id="recruit" class="py-40 bg-zinc-900/10 px-6 transition-colors duration-1000">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in text-center mb-24">
+                <p class="text-[10px] tracking-[0.8em] opacity-40 mb-6 uppercase">Recruitment Guide</p>
+                <h2 class="text-3xl md:text-5xl serif tracking-widest mb-10">■ ムリンス入社条件</h2>
+                <div class="w-12 h-px bg-current mx-auto opacity-20"></div>
             </div>
 
-            <div class="space-y-20 fade-in">
-                <div class="border-l border-white/10 pl-10">
-                    <p class="text-sm font-bold mb-6 tracking-widest">「問い100%」に含まれる成分、またはアレルギーについて</p>
-                    <p class="text-xs text-gray-500 leading-loose tracking-widest">
-                        成分の全容を解明することは、その「問い」を解き明かしてしまう（＝死に至らしめる）行為であるとムリンスは考えます。<br>
-                        しかし、あなたの身体という「境界線」を守ることはそれ以上に優先されるべき事項です。
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24 fade-in">
+                <div class="space-y-4">
+                    <span class="text-[10px] opacity-30 serif">Condition 01</span>
+                    <h3 class="text-lg serif tracking-widest">「問い」を持ち続けること</h3>
+                    <p class="text-xs opacity-60 leading-relaxed tracking-widest text-justify">
+                        ムリンスにおいて、「解決」は禁忌だ。物事を解決せず、常に「なぜ？」という空洞を抱えたまま、その空洞を愛せるか。
                     </p>
-                    <div class="mt-8 p-6 border border-white/5 bg-white/5">
-                        <p class="text-[10px] text-white/40 mb-4 tracking-[0.3em]">回避すべき物質（特定原材料等）</p>
-                        <p class="text-xs text-white/80 leading-relaxed tracking-[0.2em]">
-                            当製品には、製造過程において以下の要素が含まれる可能性を否定できません：<br>
-                            <span
-                                class="text-white font-bold underline decoration-white/20 underline-offset-8">【乳成分・小麦・大豆】</span><br><br>
-                            これらの「答え」に身体が拒絶反応を示す恐れがある方は、直接的な摂取を控え、ただその存在を眺めるに留めてください。ムリンスの問いは、眺めるだけでもあなたの内側に浸透します。
-                        </p>
-                    </div>
                 </div>
-
-                <div class="border-l border-white/10 pl-10">
-                    <p class="text-sm font-bold mb-6 tracking-widest">株式会社ムリンスとは何ですか？</p>
-                    <p class="text-xs text-gray-500 leading-loose tracking-widest">
-                        実体のある組織ではなく、あなたの思考の中にのみ登記された、問いを生産し続ける抽象的な機関です。</p>
+                <div class="space-y-4">
+                    <span class="text-[10px] opacity-30 serif">Condition 02</span>
+                    <h3 class="text-lg serif tracking-widest">履歴書を白紙で出すこと</h3>
+                    <p class="text-xs opacity-60 leading-relaxed tracking-widest text-justify">
+                        自分の経歴や答えをアピールした瞬間に不採用だ。純粋な空白（ムリン）を提示できる者が好まれる。
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Form -->
-    <section id="form" class="py-40 bg-white px-6">
+    <section id="form" class="py-40 bg-white text-black px-6 transition-colors duration-1000">
         <div class="max-w-4xl mx-auto text-center mb-20">
-            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
-                class="mx-auto mb-8">
-                <path d="M20 20 L25 85 L75 85 L80 20" stroke="black" stroke-width="2" />
-                <text x="50" y="65" fill="black" font-family="Noto Serif JP" font-weight="bold" font-size="32"
-                    text-anchor="middle" transform="rotate(-3 50 60)">問</text>
+            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-8">
+                <path d="M20 20 L25 85 L75 85 L80 20" stroke="currentColor" stroke-width="2"/>
+                <text x="50" y="65" fill="currentColor" font-family="Noto Serif JP" font-weight="bold" font-size="32" text-anchor="middle" transform="rotate(-3 50 60)">問</text>
             </svg>
             <h2 class="text-2xl md:text-4xl serif tracking-[0.3em]">あなたの「問」を、こちらへ。</h2>
         </div>
         <div class="max-w-4xl mx-auto flex justify-center fade-in">
             <div class="w-full bg-white p-4 border border-black/5 shadow-sm">
-                <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSdwjkh3ml3eufFLgVWScsF-rdJF2ciXKqV65psMqGC-zv-rXA/viewform?embedded=true"
-                    width="100%" height="600" frameborder="0">読み込み中…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwjkh3ml3eufFLgVWScsF-rdJF2ciXKqV65psMqGC-zv-rXA/viewform?embedded=true" width="100%" height="600" frameborder="0">読み込み中…</iframe>
             </div>
         </div>
     </section>
 
-    <footer
-        class="py-20 bg-black border-t border-white/5 text-[9px] tracking-[0.8em] text-gray-700 text-center uppercase">
-        <div class="flex flex-col items-center space-y-6 mb-8">
-            <a href="index - TS.html" class="hover:text-white transition">ARCHIVE - TSportfolio</a>
-        </div>
+    <footer class="py-20 bg-black border-t border-white/5 text-[9px] tracking-[0.8em] text-gray-700 text-center uppercase transition-colors duration-1000">
         <p class="mb-4 tracking-[1em]">MURINSU PHILOSOPHICAL ARCHIVE</p>
         <p>© 2026 MURINSU INC. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+        }
+
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -351,15 +370,14 @@
 
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                nav.classList.add('bg-black/90', 'backdrop-blur-sm', 'py-6');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled', 'py-6');
                 nav.classList.remove('py-8');
             } else {
-                nav.classList.remove('bg-black/90', 'backdrop-blur-sm', 'py-6');
+                nav.classList.remove('nav-scrolled', 'py-6');
                 nav.classList.add('py-8');
             }
         });
     </script>
 </body>
-
 </html>
