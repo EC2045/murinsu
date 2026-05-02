@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問いを作るカード</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap');
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f4f4f2;
+            color: #333;
+        }
+
+        .serif {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .card {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            perspective: 1000px;
+        }
+
+        .card:active {
+            transform: scale(0.95);
+        }
+
+        .card-inner {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .theme-card { background: #fff; border-color: #e2e8f0; }
+        .question-card { background: #fff; border-color: #e2e8f0; }
+
+        .theme-active { border-color: #ef4444; background: #fff5f5; }
+        .question-active { border-color: #3b82f6; background: #eff6ff; }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .log-item {
+            border-left: 4px solid #cbd5e1;
+            background: white;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-2xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="serif text-3xl font-bold mb-2">問いを作るカード</h1>
+            <p class="text-gray-500 text-sm italic">― ムリンス開発・架空疑問生成器 ―</p>
+        </header>
+
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <!-- Theme Card Slot -->
+            <div class="card" onclick="drawTheme()">
+                <div id="theme-display" class="card-inner theme-card serif text-lg font-bold">
+                    テーマを引く
+                </div>
+                <p class="text-center text-xs text-gray-400 mt-2">🟥 THEME (対象)</p>
+            </div>
+
+            <!-- Question Card Slot -->
+            <div class="card" onclick="drawQuestion()">
+                <div id="question-display" class="card-inner question-card serif text-lg font-bold">
+                    クエスチョンを引く
+                </div>
+                <p class="text-center text-xs text-gray-400 mt-2">🟦 QUESTION (問い)</p>
+            </div>
+        </div>
+
+        <!-- Result Display -->
+        <div id="result-container" class="hidden bg-white p-6 rounded-xl shadow-inner border border-gray-200 mb-8 fade-in">
+            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">生成された問い</h2>
+            <div id="combined-text" class="serif text-xl md:text-2xl mb-6 leading-relaxed">
+                <!-- Text Injected Here -->
+            </div>
+            
+            <div class="space-y-4">
+                <textarea id="caption-input" rows="3" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-gray-300 outline-none transition" placeholder="この問いに対する解説やキャプションを自由に書き留めてください..."></textarea>
+                <button onclick="saveArchive()" class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition font-bold">思考のアーカイブに保存する</button>
+            </div>
+        </div>
+
+        <!-- Archive -->
+        <div class="mt-12">
+            <div class="flex justify-between items-center mb-4 border-b border-gray-300 pb-2">
+                <h3 class="serif text-xl font-bold">架空疑問のアーカイブ</h3>
+                <span id="counter" class="text-xs font-mono bg-gray-200 px-2 py-1 rounded">Count: 0</span>
+            </div>
+            <div id="archive-list" class="space-y-4">
+                <p class="text-center text-gray-400 py-8 italic">まだ保存された問いはありません。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themes = [
+            // 基本・雑貨
+            "練り消し", "穴の開いた靴下", "コンビニのレシート", "期限切れのポイントカード", 
+            "ぬるくなった自動販売機のお茶", "醤油の小皿に浮かぶ虹", "割り箸の割れ残り",
+            "ビニール袋のほどけない結び目", "使い切れないリップクリーム", "裏返しのまま干されたシャツ",
+            "湿気ったポテトチップス", "使い終わったシャンプーの最後のひと押し", "冷蔵庫の奥で眠る謎の調味料",
+            "片方だけ失くしたワイヤレスイヤホン", "折れたシャーペンの芯", "意味を失ったキーホルダー",
+            // 概念・デジタル
+            "ムリンス", "裏・月曜日", "既読スルーの沈黙", "404エラーの先に住む羊", 
+            "タイムスタンプのずれ", "昨日の夜、一瞬だけ忘れたこと", "予測変換の裏切り",
+            "Wi-Fiの電波の死に際", "フォルダの中の「新しいフォルダ(99)」", "削除されたはずの履歴",
+            "検索窓に残った自分への問い", "低速制限された自由", "保存されなかった下書きの亡霊",
+            "ログインパスワードを忘れた過去の自分", "電波の届かない地下室の静寂",
+            // 架空・シュール
+            "重力のない雨", "色を持たない虹", "名前を付け忘れた感情", "四角い球体",
+            "一度も演奏されなかった音色", "誰かが置き忘れた「あ」の書き順", "逆回転する砂時計の音",
+            "重さを失った言葉", "夜を吸い込む掃除機", "誰もいない映画館の笑い声",
+            "透明な壁にぶつかる思考", "終わりなき連休の三日目", "記憶の底に沈んだ未読通知",
+            "誰の持ち物でもない足音", "嘘だけを食べる鳥", "鏡の中にだけ存在する街の地図",
+            // 身体・解剖学
+            "喉に生えた「二度目の声」の蕾", "眼球の裏で飼っている金魚", "膝小僧が夜中に呟く「予言」",
+            "爪の裏側にある異次元への入り口", "透明な心臓の鼓動音", "記憶の味がする唾液",
+            "指先から溢れ出す「昔の会話」", "背中に貼り付いた「他人の視線」",
+            "耳の奥で鳴り続ける「知らない国の国歌」", "影が少しずつ剥がれ落ちる現象",
+            "体温を持たない「もう一人の自分」の指", "夢の中でだけ機能する第三の目",
+            // 都市・環境
+            "誰も見ていない時の信号機", "階段の13段目と14段目の間", "真夜中のエスカレーターの独り言",
+            "ガードレールの寂しそうな断面", "マンホールの下に隠された「予備の空」",
+            "誰もいない公園のブランコの揺れ方", "自動ドアが反応した「透明な客」",
+            "高架下で反響する「未来の自分の声」", "ビルとビルの間に挟まった昨日の夕焼け",
+            "忘れ去られた商店街のシャッターの模様", "真夜中の噴水が描く円グラフ"
+        ];
+
+        const questions = [
+            // 社会・制度
+            "を崇拝する宗教の聖典", "が通貨になった世界の物価", "を義務教育の道徳に取り入れる方法",
+            "を国歌にした国の結末", "の輸出入を禁止した法律の理由", "を「新しい祝日」にした時の過ごし方",
+            "を大統領に選出した国の公用語", "を納税の代わりに納める制度", "の所有権を巡る国際裁判の争点",
+            // 展示・解釈
+            "を「忘れ去られた神」として展示する際の説明文", "を1000年後の考古学者が誤解した内容",
+            "だけを収集する博物館の館長の悩み", "を展示するために必要な最低限の嘘の量",
+            "を「美の基準」として採用したミスコン", "を「現代アート」として定義した際の値段",
+            "を額縁に入れて飾るための正しい作法", "の「影」だけを展示する特別展のタイトル",
+            // 感情・関係
+            "の正しい絶望のさせ方", "から「愛」を抽出して瓶詰めする方法", "にとっての地獄とは",
+            "と自分との間に流れる共通の絶望", "を「幸福の象徴」と定義した場合の変化",
+            "に初めて名前をつけた瞬間の後悔", "を愛しすぎてしまった人の末路",
+            "と結婚するための法的な手続き", "を「親友」と呼ぶために必要な儀式",
+            // 変化・異常
+            "に意志があったら最初に吐く「嘘」", "の裏側に住んでいる住人の名前",
+            "を「新しい色」として認識するための訓練", "が「かつて人類が持っていた器官」だった頃の機能",
+            "の代わりに「さよなら」の代わりに使う挨拶", "を100倍に薄めて飲んだ時の副作用",
+            "が突然巨大化して街を覆った時の対策", "を「魂の形」と仮定した時の不都合",
+            "が唯一の「真実」であるとされる世界", "を一生食べ続けなければならない刑罰",
+            "が鏡に映らなくなった理由の考察", "を時速300キロで投げた時の軌道予測"
+        ];
+
+        let currentTheme = "";
+        let currentQuestion = "";
+        let archiveCount = 0;
+
+        function drawTheme() {
+            const display = document.getElementById('theme-display');
+            currentTheme = themes[Math.floor(Math.random() * themes.length)];
+            display.innerText = currentTheme;
+            display.classList.add('theme-active');
+            checkCombination();
+        }
+
+        function drawQuestion() {
+            const display = document.getElementById('question-display');
+            currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+            display.innerText = currentQuestion;
+            display.classList.add('question-active');
+            checkCombination();
+        }
+
+        function checkCombination() {
+            if (currentTheme && currentQuestion) {
+                const container = document.getElementById('result-container');
+                const combined = document.getElementById('combined-text');
+                container.classList.remove('hidden');
+                combined.innerText = `「${currentTheme}」${currentQuestion}`;
+                document.getElementById('caption-input').value = "";
+            }
+        }
+
+        function saveArchive() {
+            const caption = document.getElementById('caption-input').value;
+            const combinedText = document.getElementById('combined-text').innerText;
+            
+            if (!combinedText) return;
+
+            const archiveList = document.getElementById('archive-list');
+            if (archiveList.querySelector('p.italic')) {
+                archiveList.innerHTML = "";
+            }
+
+            const item = document.createElement('div');
+            item.className = "log-item p-4 shadow-sm fade-in";
+            
+            const now = new Date();
+            const timeStr = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+
+            item.innerHTML = `
+                <div class="text-xs text-gray-400 mb-1">${timeStr} 記録</div>
+                <div class="serif font-bold text-lg mb-2">${combinedText}</div>
+                <div class="text-sm text-gray-600 leading-relaxed">${caption ? caption : '<span class="italic text-gray-300">（無言の思索）</span>'}</div>
+            `;
+
+            archiveList.prepend(item);
+            archiveCount++;
+            document.getElementById('counter').innerText = `Count: ${archiveCount}`;
+        }
+    </script>
+</body>
+</html>
