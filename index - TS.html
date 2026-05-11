@@ -33,9 +33,15 @@
             --hero-bg: #0a0a0a;
             --header-bg: rgba(17, 17, 17, 0.9);
         }
+@font-face {
+  font-family: '2045alphabet';
+  src: url('https://ec2045.github.io/2045font/2045alphabet.otf') format('opentype');
+  font-display: swap;
+}
+
 
         body {
-            font-family: 'Inter', 'Noto Serif JP', serif;
+            font-family: '2045alphabet', 'Noto Serif JP', serif;
             scroll-behavior: smooth;
             background-color: var(--primary-bg);
             color: var(--text-main);
@@ -43,7 +49,7 @@
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        .serif { font-family: 'Crimson Pro', 'Noto Serif JP', serif; }
+        .serif { font-family: '2045alphabet', 'Noto Serif JP', serif; }
 
         .fade-in {
             opacity: 0;
