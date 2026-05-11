@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問い100% | 株式会社ムリンス</title>
+    
+    <!-- SEO & OGP Settings -->
+    <meta name="description" content="答えはいらない。純粋な問いだけを抽出した概念的飲料「問い100%」。株式会社ムリンスが提案する、思考を白紙に戻すためのアーカイブ。">
+    <meta property="og:title" content="問い100% | 株式会社ムリンス">
+    <meta property="og:description" content="答えはいらない。あなたの内側にある輪郭を、もう一度描き直すための試薬。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://murinsu-inc.jp/toi100">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200&h=630">
+    <meta property="og:site_name" content="問い100% 公式サイト">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="問い100% | 株式会社ムリンス">
+    <meta name="twitter:description" content="答えはいらない。純粋な問いだけを抽出した概念的飲料。">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=1200&h=630">
+
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 20 L25 80 L75 80 L80 20' stroke='currentColor' stroke-width='10' fill='none'/%3E%3Ctext x='50' y='65' fill='currentColor' font-family='Noto Serif JP, serif' font-weight='bold' font-size='45' text-anchor='middle' transform='rotate(-5 50 60)'%3E問%3C/text%3E%3C/svg%3E">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --sub-text: rgba(255, 255, 255, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --nav-bg: rgba(0, 0, 0, 0.9);
+            --main-font: '2045alphabet', 'Noto Serif JP', serif;
+        }
+
+        body.light-mode {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --sub-text: rgba(0, 0, 0, 0.4);
+            --border-color: rgba(0, 0, 0, 0.1);
+            --card-bg: rgba(0, 0, 0, 0.02);
+            --nav-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body.font-noto-sans { --main-font: 'Noto Sans JP', sans-serif; }
+        body.font-noto-serif { --main-font: 'Noto Serif JP', serif; }
+        body.font-2045 { --main-font: '2045alphabet', sans-serif; }
+
+        @font-face {
+            font-family: '2045alphabet';
+            src: url('https://ec2045.github.io/2045font/2045alphabet.otf') format('opentype');
+            font-display: swap;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+            transition: background-color 0.8s ease, color 0.8s ease;
+            overflow-x: hidden;
+        }
+
+        .serif-fix { font-family: 'Noto Serif JP', serif; }
+        
+        /* Animations */
+        @keyframes float-angled {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-30px) rotate(2deg); }
+        }
+        .float-animation { animation: float-angled 8s ease-in-out infinite; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* UI Components */
+        .tab-btn { border-bottom: 2px solid transparent; transition: all 0.3s; opacity: 0.4; }
+        .tab-btn.active { border-bottom: 2px solid var(--text-color); opacity: 1; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeInContent 0.8s ease-out forwards; }
+
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-card {
+            border: 1px solid var(--border-color);
+            transition: all 0.5s ease;
+        }
+        .product-card:hover {
+            border: 1px solid var(--text-color);
+            background: var(--card-bg);
+        }
+
+        .nav-scrolled {
+            background-color: var(--nav-bg) !important;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Control Toggle Styles */
+        .control-toggle {
+            cursor: pointer;
+            width: 44px;
+            height: 22px;
+            border: 1px solid var(--text-color);
+            border-radius: 22px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .control-toggle::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body.light-mode #mode-toggle::after { transform: translateX(22px); }
+
+        /* Custom Select */
+        .custom-select {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 12px 16px;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+            appearance: none;
+            border-radius: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            transition: border 0.3s;
+        }
+        .custom-select:hover { border-color: var(--text-color); }
+        body.light-mode .custom-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        }
+        .custom-select option { background: #111; color: white; }
+        body.light-mode .custom-select option { background: white; color: black; }
+
+        /* Appearance Menu (Settings Only) */
+        #settings-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: var(--bg-color);
+            z-index: 100;
+            transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 1px solid var(--border-color);
+            padding: 120px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        #settings-menu.active { right: 0; }
+        #menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+        }
+        #menu-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .burger-btn {
+            width: 24px;
+            height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            position: relative;
+            z-index: 110;
+        }
+        .burger-line { width: 100%; height: 1px; background-color: var(--text-color); transition: all 0.3s; }
+        .burger-btn.active .burger-line:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+        .burger-btn.active .burger-line:nth-child(2) { opacity: 0; }
+        .burger-btn.active .burger-line:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+        .setting-group {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        #settings-menu.active .setting-group { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div id="menu-overlay" onclick="toggleSettings()"></div>
+
+    <!-- Settings Menu (Sidebar) -->
+    <div id="settings-menu">
+        <div class="mb-12 opacity-20 text-[9px] tracking-[0.5em] uppercase">Appearance</div>
+        
+        <!-- Dark/Light Mode -->
+        <div class="setting-group flex items-center justify-between mb-12" style="transition-delay: 0.1s;">
+            <div class="flex flex-col">
+                <span class="text-[11px] tracking-[0.2em]">ライトモード</span>
+                <span class="text-[8px] opacity-40 tracking-[0.1em] mt-1">Light / Dark theme</span>
+            </div>
+            <div id="mode-toggle" class="control-toggle" onclick="toggleMode()"></div>
+        </div>
+
+        <!-- Font Selection -->
+        <div class="setting-group space-y-6" style="transition-delay: 0.2s;">
+            <div class="flex flex-col">
+                <span class="text-[11px] tracking-[0.2em]">タイポグラフィ</span>
+                <span class="text-[8px] opacity-40 tracking-[0.1em] mt-1">Typography selection</span>
+            </div>
+            <select id="font-select" class="custom-select" onchange="changeFont(this.value)">
+                <option value="2045">2045 ALPHABET (Standard)</option>
+                <option value="serif">NOTO SERIF JP</option>
+                <option value="sans">NOTO SANS JP</option>
+            </select>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="mt-auto pt-10 border-t border-white/5 opacity-30">
+            <p class="text-[8px] tracking-[0.3em] leading-relaxed">
+                株式会社ムリンス <br>
+                MURINSU SETTINGS PANEL v1.0
+            </p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-8 py-8 flex justify-between items-center transition-all duration-500" id="navbar">
+        <div class="flex items-center space-x-4 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 20 L25 85 L75 85 L80 20" stroke="currentColor" stroke-width="4" fill="none"/>
+                <text x="50" y="66" fill="currentColor" font-family="Noto Serif JP" font-weight="bold" font-size="38" text-anchor="middle" transform="rotate(-4 50 62)">問</text>
+            </svg>
+            <div class="flex flex-col leading-none">
+                <div class="text-lg font-bold tracking-[0.4em] serif-fix">問い100%</div>
+                <div class="text-[7px] tracking-[0.2em] opacity-40 mt-1 uppercase">Murinsu Inc.</div>
+            </div>
+        </div>
+        
+        <div class="flex items-center space-x-10">
+            <div class="hidden md:flex items-center space-x-10 text-[9px] tracking-[0.5em] opacity-60">
+                <a href="#concept" class="hover:opacity-100 transition">CONCEPT</a>
+                <a href="#products" class="hover:opacity-100 transition">ARCHIVE</a>
+                <a href="#recruit" class="hover:opacity-100 transition">RECRUIT</a>
+                <a href="#form" class="hover:opacity-100 transition">INQUIRY</a>
+                <span class="opacity-20 text-[8px]">|</span>
+                <a href="https://ec2045.github.io/murinsu/index%20-%20TS.html" class="hover:opacity-100 transition italic">TSportfolio</a>
+            </div>
+
+            <!-- Settings Trigger (Hamburger) -->
+            <div class="burger-btn" id="burger-btn" onclick="toggleSettings()" title="外観設定">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_70%)]"></div>
+        <div class="relative z-10 text-center px-4">
+            <div class="mb-16 float-animation">
+                <svg width="180" height="180" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto opacity-80">
+                    <path d="M15 15 L22 90 L78 90 L85 15" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 6"/>
+                    <text x="50" y="62" fill="currentColor" font-family="Noto Serif JP" font-weight="bold" font-size="45" text-anchor="middle" transform="rotate(-5 50 55)">問</text>
+                </svg>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-light mb-10 tracking-[0.3em] fade-in serif-fix">答えはいらない。</h1>
+            <p class="text-[10px] md:text-xs font-extralight tracking-[0.8em] opacity-40 fade-in uppercase">Pure inquiry is all you need.</p>
+        </div>
+    </section>
+
+    <!-- Concept -->
+    <section id="concept" class="py-40 px-6 bg-white text-black transition-colors duration-1000">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-[9px] tracking-[0.8em] opacity-30 mb-12 uppercase">Statement</p>
+            <h2 class="text-2xl md:text-4xl mb-20 tracking-[0.2em] fade-in serif-fix">その一口は、思考を白紙に戻す。</h2>
+            <div class="space-y-12 text-justify leading-[2.6] text-sm md:text-base fade-in opacity-80">
+                <p>世界に溢れる「正解」という名のノイズ。株式会社ムリンスはそれらを一度、濾過することにしました。残ったのは、たったひとつの「問い」だけ。</p>
+                <p>『問い100%』は、喉を潤すための液体ではありません。あなたの内側にある輪郭を、もう一度描き直すための試薬です。</p>
+                <div class="h-px bg-black/5 w-full my-16"></div>
+                <p class="font-bold border-l-4 border-black pl-8 my-16 tracking-widest text-lg text-left">
+                    不純物：確信、安心、結論。<br>
+                    成分：静寂、違和感、そしてあなた自身の声。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archive -->
+    <section id="products" class="py-40 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="fade-in text-center mb-24">
+                <p class="text-[9px] tracking-[0.8em] opacity-30 mb-4 uppercase">Archive</p>
+                <h2 class="text-2xl md:text-3xl tracking-widest serif-fix">不条理の抽出</h2>
+            </div>
+
+            <div class="flex justify-center gap-10 mb-24 fade-in">
+                <button onclick="showTab('elixir')" class="tab-btn active pb-4 text-[10px] tracking-[0.4em]" id="btn-elixir">ELIXIR</button>
+                <button onclick="showTab('physical')" class="tab-btn pb-4 text-[10px] tracking-[0.4em]" id="btn-physical">PHYSICAL</button>
+                <button onclick="showTab('intellect')" class="tab-btn pb-4 text-[10px] tracking-[0.4em]" id="btn-intellect">INTELLECTUAL</button>
+            </div>
+
+            <div id="tab-elixir" class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="product-card p-12 space-y-8 group">
+                        <div class="aspect-[4/5] border border-white/5 flex items-center justify-center relative transition-transform duration-700 group-hover:scale-[1.02]">
+                            <div class="w-20 h-40 border border-white/20"></div>
+                        </div>
+                        <h3 class="text-lg tracking-widest serif-fix">問い100% (Original)</h3>
+                        <p class="opacity-50 text-[11px] leading-relaxed tracking-widest">流通させることで「答え」に変わることを拒絶した概念的飲料。論理の崩壊と好奇心の残留。</p>
+                    </div>
+                    <div class="product-card p-12 space-y-8 group">
+                        <div class="aspect-[4/5] border border-white/5 flex items-center justify-center relative transition-transform duration-700 group-hover:scale-[1.02]">
+                            <div class="w-24 h-24 rounded-full border border-white/10 flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full border-t border-white/40 animate-[spin_10s_linear_infinite]"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-lg tracking-widest serif-fix">忘却の水滴</h3>
+                        <p class="opacity-50 text-[11px] leading-relaxed tracking-widest">自己の定義を一時的に希釈し、白紙の状態から世界を再定義するためのブースター。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-physical" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="product-card p-12 space-y-8">
+                        <div class="aspect-square border border-white/5 flex flex-col items-center justify-center">
+                            <div class="w-24 h-40 border border-white/30 relative animate-pulse"></div>
+                        </div>
+                        <h3 class="text-lg tracking-widest">Reverse Gravity Treadmill</h3>
+                        <p class="opacity-50 text-[11px] leading-relaxed">視点を180度転換し、どこにも辿り着けない歩行を続けるための装置。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-intellect" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="product-card p-12 space-y-8">
+                        <div class="aspect-square border border-white/5 flex items-center justify-center">
+                            <div class="w-32 h-32 border border-white/20 flex items-center justify-center serif-fix text-3xl">問</div>
+                        </div>
+                        <h3 class="text-lg tracking-widest">Inquiry Cards</h3>
+                        <p class="opacity-50 text-[11px] leading-relaxed">勝者のいないゲーム。相手の心に最も深い違和感を植え付ける対話ツール。</p>
+                        <div class="pt-4">
+                            <a href="https://ec2045.github.io/murinsu/questionn_generator.html" target="_blank" class="text-[9px] border border-current px-8 py-3 hover:bg-current hover:text-black transition">PLAY GAME</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruit -->
+    <section id="recruit" class="py-40 bg-zinc-900/10 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in text-center mb-24">
+                <p class="text-[9px] tracking-[0.8em] opacity-30 mb-6 uppercase">Recruit</p>
+                <h2 class="text-3xl md:text-5xl tracking-widest serif-fix">■ ムリンス入社条件</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 fade-in">
+                <div class="border-l border-white/5 pl-8 py-2">
+                    <span class="text-[8px] opacity-30 italic serif-fix">Condition 01</span>
+                    <h3 class="text-md tracking-widest mt-2 mb-4 serif-fix">「問い」を持ち続けること</h3>
+                    <p class="text-[11px] opacity-50 leading-relaxed tracking-widest text-justify">解決は禁忌だ。物事を解決せず、常に「なぜ？」という空洞を愛せるかどうかが問われる。</p>
+                </div>
+                <div class="border-l border-white/5 pl-8 py-2">
+                    <span class="text-[8px] opacity-30 italic serif-fix">Condition 02</span>
+                    <h3 class="text-md tracking-widest mt-2 mb-4 serif-fix">履歴書を白紙で出すこと</h3>
+                    <p class="text-[11px] opacity-50 leading-relaxed tracking-widest text-justify">自分の経歴をアピールした瞬間に不採用。純粋な空白（ムリン）を提示できる者が好まれる。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form -->
+    <section id="form" class="py-40 bg-white text-black px-6">
+        <div class="max-w-4xl mx-auto text-center mb-20">
+            <h2 class="text-2xl md:text-3xl tracking-[0.3em] serif-fix">あなたの「問」を、こちらへ。</h2>
+        </div>
+        <div class="max-w-4xl mx-auto fade-in">
+            <div class="bg-white p-2 border border-black/5">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwjkh3ml3eufFLgVWScsF-rdJF2ciXKqV65psMqGC-zv-rXA/viewform?embedded=true" width="100%" height="600" frameborder="0">読み込み中…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 bg-black border-t border-white/5 text-[8px] tracking-[1em] text-gray-700 text-center uppercase">
+        <p>© 2026 MURINSU INC. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        function changeFont(value) {
+            document.body.classList.remove('font-noto-sans', 'font-noto-serif', 'font-2045');
+            if (value === 'sans') document.body.classList.add('font-noto-sans');
+            else if (value === 'serif') document.body.classList.add('font-noto-serif');
+            else if (value === '2045') document.body.classList.add('font-2045');
+        }
+
+        function toggleSettings() {
+            const menu = document.getElementById('settings-menu');
+            const overlay = document.getElementById('menu-overlay');
+            const btn = document.getElementById('burger-btn');
+            
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            btn.classList.toggle('active');
+
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+            document.getElementById('btn-' + tabName).classList.add('active');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('nav-scrolled', 'py-6');
+            else nav.classList.remove('nav-scrolled', 'py-6');
+        });
+    </script>
+</body>
+</html>
