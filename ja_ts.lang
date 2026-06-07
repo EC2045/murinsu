@@ -1,0 +1,60 @@
+nav.profile = Profile
+nav.works = Works
+nav.philosophy = Philosophy
+nav.skills = Skills
+nav.archive = Archive
+nav.contact = Contact
+nav.inquiry = Inquiry
+
+hero.profile.1 = 追求するのは、<br><span class="text-zinc-400 italic font-normal">確かな違和感</span>と技術。
+hero.profile.2 = T.Sは、デジタルの地平において「意味のない美学」と「機能しない合理性」を統合します。
+
+hero.works.language = NEW LANGUAGE: OS-V
+hero.works.mainproject = MAIN PROJECT
+hero.works.project.waonjinkoku = 和温陣国
+about.profile.country = Country of Origin
+about.profile.specialty = Specialty
+about.profile.language = Language
+about.profile.country.1 = 和温陣国 (自称)
+about.profile.specialty.1 = 隠密・存在感の抹消
+about.profile.language.1 = 日本語 / Binary / OS-V (Original)
+about.philosophy.title = 静かなる混沌の構築
+about.philosophy.1 = 圧倒的な存在感の希薄さを武器に、実体のないプロジェクトに従事。<br>「昨日できたことが今日できない」という動的な不確実性を信条としています。<br>最新の成果物として、独自の文法体系を持つ新言語「OS-V」を開発しました。
+
+works.title = 視覚的断片
+art.hand.title = 無限の連鎖と自己の拡散
+art.hand.description = 自己の境界線が曖昧になり、無限に増殖していく「接続」への渇望と恐怖。
+art.hand.name = 手.png
+
+art.wall.title = 存在の無視に対する抗議
+art.wall.description = 当たり前にある境界線を再認識させるための、静かなる叫び
+art.wall.name = 壁を無視しないでください.png
+
+art.opendoor.title = 偽装された可能性
+art.opendoor.description = 開かれているようでいて、決して越えることのできない情報の障壁。
+art.opendoor.name = 開いているふりをするドア.png
+
+art.closedoor.title = 偽造された絶望
+art.closedoor.description = 閉じてるようでて、越えることの可能な情報の障壁の幻覚
+art.closedoor.name = 閉じてるふりをするドア.png
+
+art.dontrunwall.title = 垂直方向への規律
+art.dontrunwall.description = 重力と慣習に抗う者への、あまりにも理不尽な禁止命令。
+art.dontrunwall.name = 壁を走るな.png
+
+art.dontsiton.title = 方向の違い
+art.dontsiton.description = 上と下、どちらが正しいのか？その問いの答えは閉ざされた
+art.dontsiton.name = 天井に座らないでください.png
+
+art.dontchangebody.title = それは機械だ。
+art.dontchangebody.description = 人間から逸脱しようとする人への警告。果たしてその先は...
+art.dontchangebody.name = 身体を改造しなでください.png
+
+essence.qa.title = Essential Question
+essence.qa.q = Q&A「結局、何が言いたいんですか？」
+essence.qa.a1 = その問いを抱くこと自体が、私の設計した「ユーザー体験」の完成を意味します。
+essence.qa.a2 = 答えは、縺ゅ↑縺溘′繝悶Λ繧ｦ繧ｶ繧帝哩縺倥◆迸ｬ髢薙↓縲、<br>縺ｻ繧薙?蟆代＠縺?縺第ｮ九ｋ縲悟ｦ吶↑蠕悟袖縲阪?荳ｭ縺ｫ縺ゅｊ縺ｾ縺ます。
+
+contact.title = 戦略的アンケート
+
+footer.credit = © 2045 T.S - Dedicated to Non-Productive Innovation.
