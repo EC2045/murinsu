@@ -26,7 +26,7 @@ art.hand.title = Unending Chain and Diffusion of Self
 art.hand.description = The desire and fear of "connection" where the boundaries of self become ambiguous and multiply infinitely.
 art.hand.name =　hand.png
 
-art.wall.title = Protest against the ignorence of existence
+art.wall.title = Protest against the ignorance of existence
 art.wall.description = A quiet cry to make us aware of the boundaries that are taken for granted.
 art.wall.name = do_not_ignore_the_wall.png
 
@@ -46,7 +46,7 @@ art.dontsiton.title = difference in direction
 art.dontsiton.description = Which is correct, up or down? The answer to that question is closed.
 art.dontsiton.name = do_not_sit_on_the_ceiling.png
 
-art.dontchangebody.title = That is a machine。
+art.dontchangebody.title = That is a machine.
 art.dontchangebody.description = A warning to those who try to deviate from being human. What lies beyond...
 art.dontchangebody.name = do_not_modify_your_body.png
 
