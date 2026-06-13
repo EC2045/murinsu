@@ -32,15 +32,15 @@ art.wall.name = 壁を無視しないでください.png
 
 art.opendoor.title = 偽装された可能性
 art.opendoor.description = 開いてそう。決して越できない情報障壁。
-art.opendoor.name = 開いてるいふりするドア.png
+art.opendoor.name = 開いてるいふりをするドア.png
 
 art.closedoor.title = 偽造された絶望
 art.closedoor.description = 閉じてそう。越可能情報障壁幻覚。
-art.closedoor.name = 閉じてるふりするドア.png
+art.closedoor.name = 閉じてるふりをするドア.png
 
 art.dontrunwall.title = 垂直方向への規律
 art.dontrunwall.description = 重力と慣習え抗う者え理不尽禁止命令。
-art.dontrunwall.name = 壁を走な.png
+art.dontrunwall.name = 壁を走るな.png
 
 art.dontsiton.title = 方向の違い
 art.dontsiton.description = 上と下。どち正？答えわ閉。

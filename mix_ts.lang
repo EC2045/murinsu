@@ -1,0 +1,69 @@
+# 逆翻訳版
+nav.profile = 個人履歴
+nav.works = ハンナ
+nav.philosophy = 学習ツール
+nav.contact = お問い合わせ
+nav.archive = タイム、ワユロ 2024
+
+hero.profile.1 = ホリー：カオスとテクノロジーに対する特別な理解。
+hero.profile.2 =T.S.をデジタル世界の「美への闘い」と「望まれないもの」に加える。
+
+hero.works.language = 言語：OS-V
+hero.works.mainproject = 一般プロジェクト
+hero.works.project.waonjinkoku = 和音人国
+hero.works.project.easyview = イージービュー
+hero.works.project.waonjinkoku_self = 和音人国（自主出版）
+hero.works.project.special = 特産品
+
+about.profile.language.1  日本／錬金術／OS-V（オリジナル）による
+bout.philosophy.1 = メイン画面に接頭辞のない抽象的なプロジェクトを制作しています。<br>昨日可能だったことは、今日はもう起こらない」という不確実性を信じています。<br>主要コマンドとして、aupaiは文法的な特徴を持つ新しい言語「OS-V」を創造しました。
+
+
+works.title = 目に見える物理的な物体
+
+work.title = 「パーツ」ドキュメント
+
+art.hand.title = 将来に向けた長期的なコミュニケーションのためのガイダンスとサポート
+art.hand.description = 愛と恐怖 ― 常に限界を超えて手を差し伸べる「手」。
+art.hand.name = Hand.png
+
+art.wall.title = 世界の狂気に立ち向かう
+art.wall.description = 私たちがしようとしていると思っていることを止めようとする、静かな叫び。
+art.wall.name = アートウォールを忘れないで.png
+
+art.opendoor.title = 隠された
+art.opendoor.description = 開いている
+art.opendoor.name = ドアを開けて、開いているふりをしてください.png
+
+art.closeddoor.title = 偽りの希望
+art.closeddoor.description = ""閉ざされた扉の不思議さ。まるで閉ざされた扉のようでありながら、歩くことができる""
+art.closeddoor.name = 扉と閉ざされた扉.png
+
+art.dontrunwall.title = 罰は必ず受ける
+art.dontrunwall.description = 「Ale Lodhu ka pái」と書いた人が最高。
+art.dontrunwall.name = 壁にぶつかるな.png
+
+art.dontsiton.title = "その他の使用例"
+art.dontsiton.description = 名前、上、下、わかるでしょ？秘密の答えが欲しいの。
+art.dontsiton.name = 屋根の上に座らないでください.png
+
+"art.dontchangebody.title = 機械の誕生。
+
+art.dontchangebody.description = 1 AOは人間の本質についてです。私に何か問題があるのでしょうか…？
+
+art.dontchangebody.name = そして、どうか体型を変えないでください！.png
+
+art.dontleavefloor.title = 地球上の生命
+art.dontleavefloor.description = 自由が飛び交い、犯罪が蔓延る世界。重力だけが私たちを阻むものなのだろうか？
+art.dontleavefloor.name = 地球に留まってください.png
+
+
+
+essensia.qa.title = 質問と回答は何ですか？
+
+essensia.qa.q = 質問と回答：「回答は何ですか？」
+essensia.qa.a1 = 私の回答は何ですか：「回答は何ですか？」
+essensia.qa.a2 = 回答…同意しますか？"
+
+contact.title = 組織規則
+footer.credit = © 2045 T.S - Hindi ‹ これは芸術作品ではありません。
