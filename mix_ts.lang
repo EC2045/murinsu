@@ -35,11 +35,11 @@ art.wall.description = 私たちがしようとしていると思っているこ
 art.wall.name = アートウォールを忘れないで.png
 
 art.opendoor.title = 隠された
-art.opendoor.description = 開いている
+art.opendoor.description = 浴室にはハンモックのようにスクリーンが2枚重なっていて、私は歩くことができなかった。
 art.opendoor.name = ドアを開けて、開いているふりをしてください.png
 
 art.closedoor.title = 偽りの希望
-art.closedoor.description = ""閉ざされた扉の不思議さ。まるで閉ざされた扉のようでありながら、歩くことができる""
+art.closedoor.description = 閉ざされた扉の不思議さ。まるで閉ざされた扉のようでありながら、歩くことができる""
 art.closedoor.name = 扉と閉ざされた扉.png
 
 art.dontrunwall.title = 罰は必ず受ける
@@ -51,9 +51,7 @@ art.dontsiton.description = 名前、上、下、わかるでしょ？秘密の�
 art.dontsiton.name = 屋根の上に座らないでください.png
 
 art.dontchangebody.title = 機械の誕生。
-
-art.dontchangebody.description = 1 AOは人間の本質についてです。私に何か問題があるのでしょうか…？
-
+art.dontchangebody.description = 人間の本質についてです。私に何か問題があるのでしょうか…？
 art.dontchangebody.name = そして、どうか体型を変えないでください！.png
 
 art.dontleavefloor.title = 地球上の生命
