@@ -15,9 +15,12 @@ hero.works.project.easyview = イージービュー
 hero.works.project.waonjinkoku_self = 和音人国（自主出版）
 hero.works.project.special = 特産品
 
-about.profile.language.1  日本／錬金術／OS-V（オリジナル）による
-bout.philosophy.1 = メイン画面に接頭辞のない抽象的なプロジェクトを制作しています。<br>昨日可能だったことは、今日はもう起こらない」という不確実性を信じています。<br>主要コマンドとして、aupaiは文法的な特徴を持つ新しい言語「OS-V」を創造しました。
 
+about.profile.country.1 = 元津道（自己申告）
+about.profile.specialty.1 = 非公開／公開情報
+about.profile.language.1 = 日本語／日本語／OS-V（デフォルト）"
+about.philosophy.title = ラティ・ククルとハナレ・マリ
+about.philosophy.1 = 人間は存在しないが、拘束力のない特性を持つプログラムは「にあゆ」プログラムとみなされる。<br> 私たちと同じように、「昨日起こったことは今日はできない」という疑問は理解できる。<br> 新しい仕事のために、私は「セワセウ」ツール「OS-V」で新しい言語を作成した。
 
 works.title = 目に見える物理的な物体
 
@@ -35,9 +38,9 @@ art.opendoor.title = 隠された
 art.opendoor.description = 開いている
 art.opendoor.name = ドアを開けて、開いているふりをしてください.png
 
-art.closeddoor.title = 偽りの希望
-art.closeddoor.description = ""閉ざされた扉の不思議さ。まるで閉ざされた扉のようでありながら、歩くことができる""
-art.closeddoor.name = 扉と閉ざされた扉.png
+art.closedoor.title = 偽りの希望
+art.closedoor.description = ""閉ざされた扉の不思議さ。まるで閉ざされた扉のようでありながら、歩くことができる""
+art.closedoor.name = 扉と閉ざされた扉.png
 
 art.dontrunwall.title = 罰は必ず受ける
 art.dontrunwall.description = 「Ale Lodhu ka pái」と書いた人が最高。
@@ -47,7 +50,7 @@ art.dontsiton.title = "その他の使用例"
 art.dontsiton.description = 名前、上、下、わかるでしょ？秘密の答えが欲しいの。
 art.dontsiton.name = 屋根の上に座らないでください.png
 
-"art.dontchangebody.title = 機械の誕生。
+art.dontchangebody.title = 機械の誕生。
 
 art.dontchangebody.description = 1 AOは人間の本質についてです。私に何か問題があるのでしょうか…？
 
@@ -59,11 +62,11 @@ art.dontleavefloor.name = 地球に留まってください.png
 
 
 
-essensia.qa.title = 質問と回答は何ですか？
+essence.qa.title = 質問と回答は何ですか？
 
-essensia.qa.q = 質問と回答：「回答は何ですか？」
-essensia.qa.a1 = 私の回答は何ですか：「回答は何ですか？」
-essensia.qa.a2 = 回答…同意しますか？"
+essence.qa.q = 質問と回答：「回答は何ですか？」
+essence.qa.a1 = 私の回答は何ですか：「回答は何ですか？」
+essence.qa.a2 = 回答…同意しますか？"
 
 contact.title = 組織規則
 footer.credit = © 2045 T.S - Hindi ‹ これは芸術作品ではありません。
