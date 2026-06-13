@@ -50,6 +50,10 @@ art.dontchangebody.title = That is a machine.
 art.dontchangebody.description = A warning to those who try to deviate from being human. What lies beyond...
 art.dontchangebody.name = do_not_modify_your_body.png
 
+art.dontleavefloor.title = Obligation to Keep Contact with the Ground
+art.dontleavefloor.description = In a world where even the leap towards freedom is a sin. Are we really held down only by gravity?
+art.dontleavefloor.name = do_not_leave_the_ground.png
+
 essence.qa.title = Essential Question
 essence.qa.q = Q&A "So, What do you wanna say?"
 essence.qa.a1 = The question itself is the completion of the "user experience" I designed.

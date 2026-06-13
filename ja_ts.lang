@@ -50,6 +50,10 @@ art.dontchangebody.title = それは機械だ。
 art.dontchangebody.description = 人間から逸脱しようとする人への警告。果たしてその先は...
 art.dontchangebody.name = 身体を改造しなでください.png
 
+art.dontleavefloor.title = 接地の義務
+art.dontleavefloor.description = 自由への跳躍すら罪となる世界。私たちが繋ぎ止められているのは、本当に重力だけなのだろうか。
+art.dontleavefloor.name = 床から離れないでください.png
+
 essence.qa.title = Essential Question
 essence.qa.q = Q&A「結局、何が言いたいんですか？」
 essence.qa.a1 = その問いを抱くこと自体が、私の設計した「ユーザー体験」の完成を意味します。

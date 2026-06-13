@@ -46,9 +46,13 @@ art.dontsiton.title = 方向の違い
 art.dontsiton.description = 上と下。どち正？答えわ閉。
 art.dontsiton.name = 天井に座らないでください.png
 
-art.dontchangebody.title = それは機械だ。
+art.dontchangebody.title = それわ機械だ。
 art.dontchangebody.description = それわ機械。人間逸脱試者え警告。先わ...
 art.dontchangebody.name = 身体を改造しなでください.png
+
+art.dontleavefloor.title = 接地の義務
+art.dontleavefloor.description = 自由への跳躍すら罪。私たちが繋ぎ止められているのわ、本当に重力だけか？
+art.dontleavefloor.name = 床から離れないでください.png
 
 essence.qa.title = Essential Question
 essence.qa.q = Q&A「結局、何言いたい？」
