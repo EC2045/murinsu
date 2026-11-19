@@ -1,22 +1,133 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T.S Official Portfolio - Professional Innovation</title>
+    <title>T.S — Portfolio / 確かな違和感</title>
+    <meta name="color-scheme" content="light dark">
+    <script>
+        // Apply the saved choice before paint; first visits start with a light page.
+        try {
+            document.documentElement.dataset.theme =
+                localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+        } catch (_) {
+            document.documentElement.dataset.theme = 'light';
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://ec2045.github.io/scripts/font.js?v=20261102-1" data-lang-path="{lang}_ts.lang" data-languages="eo,moja,langkey,mix,ja,en"></script>
+    <script>tailwind.config = { darkMode: ['selector', '[data-theme="dark"]'] };</script>
+    <script defer src="https://ec2045.github.io/scripts/font.js?v=20261102-1" data-lang-path="{lang}_ts.lang" data-languages="eo,moja,langkey,mix,ja,en"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="src/style_3c4deadc.css">
+
+    <style>
+        :root {
+            color-scheme: light;
+            --primary-bg: #f8f7f2;
+            --secondary-bg: #eeede7;
+            --card-bg: #fffefa;
+            --hero-bg: #f8f7f2;
+            --text-main: #20211e;
+            --text-muted: #60615a;
+            --accent: #a52e25;
+            --border-color: #d5d5ca;
+            --header-bg: rgba(248,247,242,.95);
+        }
+        [data-theme='dark'] {
+            color-scheme: dark;
+            --primary-bg: #181a18;
+            --secondary-bg: #222522;
+            --card-bg: #1e211e;
+            --hero-bg: #181a18;
+            --text-main: #eeeee4;
+            --text-muted: #b8bbb0;
+            --accent: #ef9282;
+            --border-color: #44483f;
+            --header-bg: rgba(24,26,24,.95);
+        }
+        html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+        body { margin: 0; font-family: 'Inter', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; }
+        section { position: relative; }
+        header > div { padding-right: 6rem; }
+        .ts-wordmark { font-family: Georgia, serif; font-size: 2rem; font-weight: 700; letter-spacing: -.07em; white-space: nowrap; }
+        .ts-wordmark span { font: 10px/1.5 'Courier New', monospace; letter-spacing: .16em; margin-left: .8rem; }
+        header a { color: var(--text-main); }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+        .ts-hero { overflow: hidden; padding-top: 9rem; padding-bottom: 6rem; border-bottom: 1px solid var(--border-color); }
+        .ts-hero::before {
+            content: 'T.S'; position: absolute; right: -.03em; bottom: -.23em;
+            font: 700 clamp(16rem,40vw,40rem)/1 Georgia, serif; letter-spacing: -.12em;
+            color: var(--text-main); opacity: .045; pointer-events: none;
+        }
+        .ts-hero > div { position: relative; z-index: 1; width: 100%; }
+        .ts-hero > div > p { color: var(--accent); font-family: 'Courier New', monospace; display: flex; align-items: center; gap: 1rem; }
+        .ts-hero > div > p::before { content: ''; width: 2rem; height: 3px; background: var(--accent); }
+        .ts-hero h1 { font-size: clamp(2.4rem,5.6vw,5.4rem); letter-spacing: -.035em; line-height: 1.5; }
+        .ts-hero h1 span { color: var(--accent); font-style: normal; }
+        .hero-border { border-left: 3px solid var(--accent); }
+        .hero-border p { color: var(--text-muted); }
+        .hero-border a { border: 1px solid var(--text-main); background: transparent; color: var(--text-main); }
+        .hero-border a:first-child { background: var(--text-main); color: var(--primary-bg); }
+        .hero-border a:hover { background: var(--accent); color: var(--primary-bg); border-color: var(--accent); opacity: 1; }
+        .ts-identity {
+            aspect-ratio: 3 / 4; border: 1px solid var(--border-color);
+            background: var(--secondary-bg); display: flex; flex-direction: column;
+            justify-content: space-between; padding: 1.5rem; position: relative; overflow: hidden;
+        }
+        .ts-identity::before, .ts-identity::after { content: ''; position: absolute; background: var(--border-color); pointer-events: none; }
+        .ts-identity::before { width: 1px; height: 100%; left: 50%; top: 0; }
+        .ts-identity::after { width: 100%; height: 1px; top: 50%; left: 0; }
+        .ts-identity-index, .ts-identity-caption { position: relative; z-index: 1; font: 10px/1.6 'Courier New', monospace; letter-spacing: .12em; color: var(--text-muted); }
+        .ts-identity-mark { align-self: center; font: 700 clamp(7rem,17vw,13rem)/1 Georgia, serif; letter-spacing: -.12em; padding-right: .12em; position: relative; z-index: 1; }
+        .ts-identity-caption { color: var(--accent); }
+        #about h2, #works h2 { color: var(--accent); font-family: 'Courier New', monospace; letter-spacing: .2em; }
+        #about p, #works p { color: var(--text-muted); }
+        #works { border-color: var(--border-color); counter-reset: fragments; }
+        #works > div > div:first-child { text-align: left; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; }
+        .art-container { width: 100%; max-width: none; counter-increment: fragments; }
+        .art-card { position: relative; box-shadow: none; padding: 1.25rem; border-color: var(--border-color); }
+        .art-card::before { content: 'T.S / ' counter(fragments, decimal-leading-zero); display: block; text-align: left; font: 11px/1.5 'Courier New', monospace; letter-spacing: .13em; color: var(--accent); margin-bottom: 1rem; }
+        [data-theme='dark'] .art-card { box-shadow: none; border-color: var(--border-color); }
+        .art-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .art-image-wrapper { border: 1px solid var(--border-color); background: #fff; }
+        .art-image-wrapper img, [data-theme='dark'] .art-image-wrapper img { filter: none; }
+        .art-card h4 { text-align: left; justify-content: flex-start; font-size: 1.2rem; }
+        .art-card p { text-align: left; justify-content: flex-start; }
+        .art-description { border-color: var(--accent); font-style: normal; overflow-wrap: anywhere; }
+        #essence { background: var(--secondary-bg); color: var(--text-main); border-block: 1px solid var(--border-color); }
+        #essence h2 { color: var(--accent); letter-spacing: .15em; }
+        #essence .space-y-8 { color: var(--text-muted); }
+        #essence .w-12 { background: var(--accent); opacity: 1; }
+        #contact { border: 0; }
+        #contact .rounded-2xl { border-radius: 0; box-shadow: none; border-color: var(--border-color); background: #fff; }
+        footer { background: var(--secondary-bg) !important; color: var(--text-muted) !important; border-top: 1px solid var(--border-color); }
+        .fade-in { opacity: 1; transform: none; }
+        @media (max-width: 767px) {
+            header > div { padding-left: 1.25rem; }
+            .ts-wordmark span { font-size: 9px; letter-spacing: .08em; margin-left: .5rem; }
+            .ts-hero { min-height: 85svh; padding-inline: 1.5rem; }
+            .hero-border { padding-left: 1.25rem; }
+            .hero-border a { width: 100%; justify-content: center; text-align: center; padding-inline: 1rem; letter-spacing: .08em; }
+            #about, #works, #contact { padding: 5rem 1.5rem; }
+            #essence { padding: 6rem 1.5rem; }
+            .ts-identity { max-width: 26rem; }
+            .ts-identity-mark { font-size: 9rem; }
+            #essence h3 { overflow-wrap: anywhere; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; }
+        }
+    </style>
 </head>
 
-<body class="antialiased">
+<body class="antialiased light-mode ts-portfolio">
 
     <!-- Header -->
     <header class="fixed w-full z-50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-[0.2em] serif uppercase">T.S Portfolio</div>
+            <a href="#top" class="ts-wordmark" aria-label="T.S Portfolio">T.S<span> / PORTFOLIO</span></a>
             <nav class="flex items-center space-x-8 md:space-x-12">
                 <div class="hidden md:flex space-x-12">
                     <a href="#about"
@@ -34,9 +145,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center px-8 lg:px-24" style="background-color: var(--hero-bg);">
+    <section id="top" class="ts-hero min-h-screen flex items-center px-8 lg:px-24" style="background-color: var(--hero-bg);">
         <div class="max-w-5xl fade-in visible">
-            <p class="text-xs tracking-[0.4em] text-zinc-400 uppercase mb-6 font-bold">Established 2024</p>
+            <p class="text-xs tracking-[0.4em] text-zinc-400 uppercase mb-6 font-bold">T.S / EST. 2024</p>
             <h1 class="text-5xl md:text-7xl font-bold serif mb-8 leading-tight">
                 hero.profile.1
             </h1>
@@ -45,15 +156,15 @@
                     hero.profile.2
                 </p>
                 <div class="flex flex-wrap gap-4 md:gap-6">
-                    <a href="https://ec2045.github.io/os-v/index.html" target="_blank"
+                    <a href="https://ec2045.github.io/os-v/index.html" target="_blank" rel="noopener noreferrer"
                         class="bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 px-8 py-4 text-xs font-bold tracking-widest hover:opacity-80 transition flex items-center gap-2">
                         <i class="fa-solid fa-code"></i> hero.works.language
                     </a>
-                    <a href="https://ec2045.github.io/murinsu/" target="_blank"
+                    <a href="https://ec2045.github.io/murinsu/" target="_blank" rel="noopener noreferrer"
                         class="border border-zinc-900 dark:border-zinc-100 px-8 py-4 text-xs font-bold tracking-widest hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-black transition">
                         hero.works.mainproject
                     </a>
-                    <a href="https://ec2045.github.io/Waon-Jinkoku/" target="_blank"
+                    <a href="https://ec2045.github.io/Waon-Jinkoku/" target="_blank" rel="noopener noreferrer"
                         class="border border-zinc-400 px-8 py-4 text-xs font-bold tracking-widest hover:bg-zinc-900 hover:text-white transition">
                         hero.works.project.waonjinkoku
                     </a>
@@ -62,12 +173,15 @@
         </div>
     </section>
 
+    <!-- A typographic sign, rather than an invented portrait. -->
     <!-- About Section -->
     <section id="about" class="py-32 px-8">
         <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16">
             <div class="lg:col-span-5 fade-in">
-                <div class="bg-zinc-200 dark:bg-zinc-800 aspect-[3/4] relative mb-8 flex items-center justify-center">
-                    <i class="fa-solid fa-user-secret text-[12rem] text-zinc-400 opacity-50"></i>
+                <div class="ts-identity mb-8" aria-label="T.S">
+                    <span class="ts-identity-index" aria-hidden="true">FIG. 01 / T.S</span>
+                    <span class="ts-identity-mark" aria-hidden="true">T.S</span>
+                    <span class="ts-identity-caption" aria-hidden="true">PRESENCE: UNCONFIRMED</span>
                 </div>
                 <dl class="profile-table">
                     <dt>about.profile.country</dt>
@@ -79,7 +193,7 @@
                 </dl>
             </div>
             <div class="lg:col-span-7 flex flex-col justify-center fade-in">
-                <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">The Philosophy</h2>
+                <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">01 / THE PHILOSOPHY</h2>
                 <h3 class="text-4xl font-bold serif mb-8">about.philosophy.title</h3>
                 <p class="text-zinc-500 mb-8 leading-loose text-justify">
                     about.philosophy.1
@@ -92,7 +206,7 @@
     <section id="works" class="py-32 px-8 border-t border-zinc-100 dark:border-zinc-800">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 fade-in">
-                <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">Artistic Fragments</h2>
+                <h2 class="text-xs tracking-[0.5em] text-zinc-400 uppercase mb-4 font-bold">02 / ARTISTIC FRAGMENTS</h2>
                 <h3 class="text-4xl font-bold serif">works.title</h3>
             </div>
 
@@ -102,7 +216,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/手.png" alt="手.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.hand.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Hand'">
@@ -121,7 +235,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/壁を無視しないでください.png" alt="壁を無視しないでください.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.wall.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Wall'">
@@ -140,7 +254,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/開いているふりをするドア.png" alt="開いているふりをするドア.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.opendoor.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Door'">
@@ -159,7 +273,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/閉じてるふりをするドア.png" alt="閉じてるふりをするドア.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.closedoor.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Door'">
@@ -178,7 +292,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/壁を走るな.png" alt="壁を走るな.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.dontrunwall.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Run'">
@@ -198,7 +312,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/天井に座らないでください.png" alt="天井に座らないでください.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.dontsiton.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Ceiling'">
@@ -218,7 +332,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/身体を改造しなでください.png" alt="身体を改造しなでください.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.dontchangebody.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Body'">
@@ -238,7 +352,7 @@
                     <div class="art-card group">
                         <div class="art-image-wrapper">
                             <img src="./images_ja/床から離れないでください.png" alt="床から離れないでください.png"
-                                class="grayscale group-hover:grayscale-0 transition duration-700"
+                                class="transition duration-700" loading="lazy" decoding="async"
                                 data-lang-img="art.dontleavefloor.name"
                                 data-lang-img-dir="./images_{lang}/"
                                 onerror="this.src='https://via.placeholder.com/300x400?text=Ground'">
