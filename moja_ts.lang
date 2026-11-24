@@ -6,59 +6,59 @@ nav.archive = Archive
 nav.contact = Contact
 nav.inquiry = Inquiry
 
-hero.profile.1 = ツイキュー スルのわ、<br><span class="text-zinc-400 italic font-normal">タシカナ イワカン</span>と ギジュㇳ。
-hero.profile.2 = T.Sわ、デジタルの チヘイに オイテ「イミの ナイ ビガㇰ」と「キノー シナイ ゴーリセイ」お トーゴー シマㇲ。
+hero.profile.1 = ツ̀イキュー́ スルのわ、<br><span class="text-zinc-400 italic font-normal">タ̀シカ́ナ イ̀ワカン</span>と ギジュ́ㇳ。
+hero.profile.2 = T.Sわ、デ̀ジタル́の チ̀ヘイ́に オ̀イテ́「イ́ミの ナ́イ ビ̀ガㇰ」と「キ̀ノー シ̀ナイ́ ゴ̀ーリセイ́」お ト̀ーゴー シマ́ㇲ。
 
 hero.works.language = NEW LANGUAGE: OS-V
 hero.works.mainproject = MAIN PROJECT
-hero.works.project.waonjinkoku = ワオンジンコㇰ
+hero.works.project.waonjinkoku = ワ̀オンジンコ́ㇰ
 about.profile.country = Country of Origin
 about.profile.specialty = Specialty
 about.profile.language = Language
-about.profile.country.1 = ワオンジンコㇰ（ジショー）
-about.profile.specialty.1 = オンミㇳ・ソンザイカンの ショーマㇳ
-about.profile.language.1 = ニホンゴ / Binary / OS-V (Original)
-about.philosophy.title = シズカナル コントンの コーチㇰ
-about.philosophy.1 = アットーテキナ ソンザイカンの キハㇰサお ブキに、ジッタイの ナイ プロジェㇰトに ジュージ。<br>「キノー デキタ コトが キョー デキナイ」と イウ ドーテキナ フカㇰジㇳセイお シンジョーと シテイマㇲ。<br>サイシンの セイカブㇳと シテ、ドㇰジの ブンポー タイケイお モㇳ シンゲンゴ「OS-V」お カイハㇳ シマシタ。
+about.profile.country.1 = ワ̀オンジンコ́ㇰ（ジ̀ショー）
+about.profile.specialty.1 = オ̀ンミㇳ・ソ̀ンザイカ́ンの ショ̀ーマㇳ
+about.profile.language.1 = ニ̀ホンゴ́ / Binary / OS-V (Original)
+about.philosophy.title = シ̀ズカナ́ル コ̀ントンの コ̀ーチㇰ
+about.philosophy.1 = ア̀ットーテキ́ナ ソ̀ンザイカ́ンの キ̀ハㇰサ́お ブ̀キに、ジ̀ッタイ́の ナ́イ プ̀ロジェㇰト́に ジュ̀ージ。<br>「キ̀ノー デ̀キタ́ コトが キョ́ー デ̀キナイ́」と イ̀ウ ド̀ーテキナ́ フ̀カㇰジㇳセ́イお シ̀ンジョーと シ̀テイマ́ㇲ。<br>サ̀イシ́ンの セ̀イカブ́ㇳと シ̀テ、ド̀ㇰジの ブ̀ンポー タ̀イケイ́お モㇳ シ̀ンゲンゴ́「OS-V」お カ̀イハ́ㇳ シマ́シタ。
 
-works.title = シカㇰテキ ダンペン
-art.hand.title = ムゲンの レンサと ジコの カㇰサン
-art.hand.description = ジコの キョーカイセンが アイマイに ナリ、ムゲンに ゾーショㇰ シテイㇰ「セㇰゾㇰ」えの カㇳボーと キョーフ。
+works.title = シ̀カㇰテキ́ ダ̀ンペン
+art.hand.title = ム̀ゲンの レ̀ンサと ジ̀コの カ̀ㇰサン
+art.hand.description = ジ̀コの キョ̀ーカイセ́ンが ア̀イマイ́に ナ̀リ、ム̀ゲンに ゾ̀ーショㇰ シ̀テイ́ㇰ「セ̀ㇰゾㇰ」えの カ̀ㇳボーと キョ̀ーフ。
 art.hand.name = 手.png
 
-art.wall.title = ソンザイの ムシに タイスル コーギ
-art.wall.description = アタリマエに アル キョーカイセンお サイニンシㇰ サセル タメの、シズカナル サケビ。
+art.wall.title = ソ̀ンザイ́の ム̀シに タ̀イスル́ コ̀ーギ
+art.wall.description = ア̀タリマ́エに ア́ル キョ̀ーカイセ́ンお サ̀イニンシ́ㇰ サ̀セル́ タ̀メの、シ̀ズカナ́ル サ̀ケビ́。
 art.wall.name = 壁を無視しないでください.png
 
-art.opendoor.title = ギソー サレタ カノーセイ
-art.opendoor.description = ヒラカレテイル ヨーで イテ、ケㇳシテ コエル コトの デキナイ ジョーホーの ショーヘキ。
+art.opendoor.title = ギ̀ソー サ̀レタ́ カ̀ノーセイ́
+art.opendoor.description = ヒ̀ラカレテイ́ル ヨーで イ̀テ、ケ̀ㇳシテ́ コ̀エル́ コトの デ̀キナイ́ ジョ̀ーホーの ショ̀ーヘキ́。
 art.opendoor.name = 開いているふりをするドア.png
 
-art.closedoor.title = ギゾー サレタ ゼㇳボー
-art.closedoor.description = トジテル ヨーで イテ、コエル コトの カノーナ ジョーホーの ショーヘキの ゲンカㇰ。
+art.closedoor.title = ギ̀ゾー サ̀レタ́ ゼ̀ㇳボー
+art.closedoor.description = ト̀ジテル́ ヨーで イ̀テ、コ̀エル́ コトの カ̀ノーナ́ ジョ̀ーホーの ショ̀ーヘキ́の ゲ̀ンカㇰ。
 art.closedoor.name = 閉じてるふりをするドア.png
 
-art.dontrunwall.title = スイチョㇰ ホーコーえの キリㇳ
-art.dontrunwall.description = ジューロㇰと カンシューに アラガウ モノえの、アマリニモ リフジンナ キンシ メイレイ。
+art.dontrunwall.title = ス̀イチョ́ㇰ ホ̀ーコーえの キ̀リㇳ
+art.dontrunwall.description = ジュ̀ーロㇰと カ̀ンシューに ア̀ラガウ́ モ̀ノえの、ア̀マリニ́モ リ̀フジンナ́ キ̀ンシ メ̀イレイ́。
 art.dontrunwall.name = 壁を走るな.png
 
-art.dontsiton.title = ホーコーの チガイ
-art.dontsiton.description = ウエと シタ、ドチラが タダシイのか？ ソノ トイの コタエわ トザサレタ。
+art.dontsiton.title = ホ̀ーコーの チ̀ガイ́
+art.dontsiton.description = ウ̀エと シ̀タ、ド̀チラが タ̀ダシ́イのか？ ソノ ト̀イの コ̀タエ́わ ト̀ザサレ́タ。
 art.dontsiton.name = 天井に座らないでください.png
 
-art.dontchangebody.title = ソレわ キカイだ。
-art.dontchangebody.description = ニンゲンから イㇳダㇳ シヨーと スル ヒトえの ケイコㇰ。ハタシテ ソノ サキわ...
+art.dontchangebody.title = ソレわ キ̀カイ́だ。
+art.dontchangebody.description = ニ̀ンゲンから イ̀ㇳダㇳ シ̀ヨーと スル ヒ̀トえの ケ̀イコ́ㇰ。ハ̀タシテ́ ソノ サ̀キわ...
 art.dontchangebody.name = 身体を改造しなでください.png
 
-art.dontleavefloor.title = セㇰチの ギム
-art.dontleavefloor.description = ジユーえの チョーヤㇰすら ツミと ナル セカイ。ワタシタチが ツナギトメラレテイルのわ、ホントーに ジューリョㇰだけ ナノダローか。
+art.dontleavefloor.title = セ̀ㇰチの ギ̀ム
+art.dontleavefloor.description = ジ̀ユーえの チョ̀ーヤㇰすら ツ̀ミと ナ̀ル セ̀カイ́。ワタシタチが ツ̀ナギトメラレテイ́ルのわ、ホ̀ントーに ジュ̀ーリョㇰだけ ナ̀ノダロ́ーか。
 art.dontleavefloor.name = 床から離れないでください.png
 
 essence.qa.title = Essential Question
-essence.qa.q = Q&A「ケㇰキョㇰ、ナニが イイタイのデㇲか？」
-essence.qa.a1 = ソノ トイお イダㇰ コト ジタイが、ワタシの セㇰケイ シタ「ユーザー タイケン」の カンセイお イミ シマㇲ。
-essence.qa.a2 = コタエわ、縺ゅ↑縺溘′繝悶Λ繧ｦ繧ｶ繧帝哩縺倥◆迸ｬ髢薙↓縲、<br>縺ｻ繧薙?蟆代＠縺?縺第ｮ九ｋ縲悟ｦ吶↑蠕悟袖縲阪?荳ｭ縺ｫ縺ゅｊ縺ｾ縺ます。
+essence.qa.q = Q&A「ケ̀ㇰキョㇰ、ナ́ニが イ̀イタイ́のデㇲか？」
+essence.qa.a1 = ソノ ト̀イお イ̀ダㇰ コト ジ̀タイ́が、ワタシの セ̀ㇰケイ́ シ̀タ「ユ̀ーザー タ̀イケ́ン」の カ̀ンセイ́お イ́ミ シマ́ㇲ。
+essence.qa.a2 = コ̀タエ́わ、縺ゅ↑縺溘′繝悶Λ繧ｦ繧ｶ繧帝哩縺倥◆迸ｬ髢薙↓縲、<br>縺ｻ繧薙?蟆代＠縺?縺第ｮ九ｋ縲悟ｦ吶↑蠕悟袖縲阪?荳ｭ縺ｫ縺ゅｊ縺ｾ縺ます。
 
-contact.title = センリャㇰテキ アンケート
+contact.title = セ̀ンリャㇰテキ́ ア̀ンケート́
 
 footer.credit = © 2045 T.S - Dedicated to Non-Productive Innovation.
